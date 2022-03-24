@@ -4,7 +4,14 @@ TrelloPowerUp.initialize({
   'card-badges': function (t, options) {
     return t.card('all').then(function (card) {
       console.log(card)
-      return [{ text: `💳 ${card.idShort} USDT` }]
+      return [
+        { text: `💳 ${card.idShort} USDT` },
+        {
+          icon:
+            'https://raw.githubusercontent.com/broxus/ton-assets/master/icons/USDTv3/logo.svg',
+          text: 'USDT',
+        },
+      ]
     })
   },
 })
