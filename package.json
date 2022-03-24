@@ -1,0 +1,15 @@
+{
+  "name": "trelloplugin",
+  "version": "1.0.0",
+  "description": "power-ups plugin for trello",
+  "main": "index.js",
+  "repository": "https://github.com/Klaustry/trelloplugin",
+  "author": "Oliver65535 <oo-tarasov@ya.ru>",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/html/*.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
