@@ -14,23 +14,22 @@ textarea {
 
 .form-rwd {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 .amount-group {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  align-self: flex-end;
+  justify-content: center;
 }
 .label {
+  width: 100%;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: baseline;
-  align-self: flex-end;
 }
 
 select {
@@ -43,4 +42,5 @@ select {
 
 button {
   height: 35px;
+  width: 100%;
 }
