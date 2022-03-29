@@ -34,7 +34,7 @@ var btnCallback = function (t, opts) {
   })
 }
 
-const createRewardClick = (t, opts) => {
+const createRewardClick = () => {
   console.log('createRewardClick clicked!')
   var t = window.TrelloPowerUp.iframe()
   t.closePopup()
