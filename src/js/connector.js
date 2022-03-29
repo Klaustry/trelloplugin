@@ -10,8 +10,6 @@ var GRAY_ICON =
 
 var onBtnClick = function () {
   console.log('Someone clicked the button')
-  var t = window.TrelloPowerUp.iframe()
-  t.closePopup()
 }
 
 const getCardRewardInfo = function (card) {
@@ -38,6 +36,7 @@ var btnCallback = function (t, opts) {
 
 const createRewardClick = (t, opts) => {
   console.log('createRewardClick clicked!')
+  var t = window.TrelloPowerUp.iframe()
   t.closePopup()
 }
 
