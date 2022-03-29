@@ -8,7 +8,7 @@ var BLACK_ICON =
 var GRAY_ICON =
   'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg'
 
-var onBtnClick = function () {
+var onBtnClick = function (t, opts) {
   console.log('Someone clicked the button')
 }
 
@@ -34,10 +34,9 @@ var btnCallback = function (t, opts) {
   })
 }
 
-function createRewardClick() {
+const createRewardClick = () => {
   console.log('createRewardClick clicked!')
-  // var t = window.TrelloPowerUp.iframe()
-  // t.closePopup()
+  t.closePopup()
 }
 
 TrelloPowerUp.initialize({
