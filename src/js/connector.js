@@ -8,8 +8,10 @@ var BLACK_ICON =
 var GRAY_ICON =
   'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg'
 
-var onBtnClick = function (t, opts) {
+var onBtnClick = function () {
   console.log('Someone clicked the button')
+  var t = window.TrelloPowerUp.iframe()
+  t.closePopup()
 }
 
 const getCardRewardInfo = function (card) {
@@ -31,9 +33,6 @@ var btnCallback = function (t, opts) {
     url: './rwd-setting.html',
     args: { myArgs: 'You can access these with t.arg()' },
     height: 210, // initial height, can be changed later
-    callback: function (t, opts) {
-      t.closePopup()
-    },
   })
 }
 
