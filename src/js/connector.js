@@ -61,11 +61,11 @@ TrelloPowerUp.initialize({
     ]
   },
   'card-buttons': function (t, opts) {
-    console.log(t, opts)
+    //console.log(t, opts)
     return [
       {
         icon: GRAY_ICON,
-        text: 'Add reward',
+        text: `💳 Add reward`,
         callback: btnCallback,
       },
     ]
