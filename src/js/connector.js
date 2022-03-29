@@ -31,11 +31,9 @@ var btnCallback = function (t, opts) {
     url: './rwd-setting.html',
     args: { myArgs: 'You can access these with t.arg()' },
     height: 210, // initial height, can be changed later
-    confirmText: 'blablabla',
-    onConfirm: function (t, opts) {},
-    confirmStyle: 'primary' | 'danger',
-    cancelText: 'lalala',
-    onCancel: function (t, opts) {},
+    callback: function (t, opts) {
+      t.closePopup()
+    },
   })
 }
 
