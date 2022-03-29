@@ -34,10 +34,10 @@ var btnCallback = function (t, opts) {
   })
 }
 
-const createRewardClick = () => {
+function createRewardClick() {
   console.log('createRewardClick clicked!')
-  var t = window.TrelloPowerUp.iframe()
-  t.closePopup()
+  // var t = window.TrelloPowerUp.iframe()
+  // t.closePopup()
 }
 
 TrelloPowerUp.initialize({
