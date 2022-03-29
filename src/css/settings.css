@@ -12,55 +12,6 @@ textarea {
   font-weight: 400;
 }
 
-fieldset {
-  border: 1px solid rgba(9, 30, 66, 0.13);
-  margin: 0 2px 4px 2px;
-}
-
-input[type='radio'],
-input[type='checkbox'] {
-  cursor: pointer;
-}
-
-label {
-  cursor: pointer;
-  display: unset;
-  font-weight: unset;
-  margin-bottom: unset;
-  margin-right: 8px;
-  padding-left: 2px;
-}
-
-legend {
-  font-weight: bold;
-  padding: 0 4px;
-}
-
-.radios {
-  padding-left: 4px;
-}
-
-.radio-option {
-  margin-bottom: 4px;
-}
-
-.radio-option:last-of-type {
-  margin-bottom: 0;
-}
-
-.opts-group {
-  margin-bottom: 8px;
-}
-
-.opts-group:last-of-type {
-  margin-bottom: 0;
-}
-
-.opts-group p {
-  font-weight: 500;
-  margin: 4px 0;
-}
-
 .form-rwd {
   display: flex;
   justify-content: space-between;
@@ -74,7 +25,7 @@ legend {
   align-self: flex-end;
 }
 .label {
-  margin-left: 12px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -83,6 +34,13 @@ legend {
 }
 
 select {
-  margin-bottom: 13px;
+  margin-bottom: 12px;
+  height: 35px;
+  background-color: #fafbfc;
+  border-radius: 3px;
+  border: 2px solid #dfe1e6;
+}
+
+button {
   height: 35px;
 }

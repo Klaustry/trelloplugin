@@ -25,6 +25,14 @@ const getCardRewardInfo = function (card) {
     ]
   else return []
 }
+var btnCallback = function (t, opts) {
+  return t.popup({
+    title: 'Change Snooze Time',
+    url: './snooze-time.html',
+    args: { myArgs: 'You can access these with t.arg()' },
+    height: 278, // initial height, can be changed later
+  })
+}
 
 TrelloPowerUp.initialize({
   'card-badges': function (t, options) {
@@ -52,21 +60,13 @@ TrelloPowerUp.initialize({
       },
     ]
   },
-  'card-back-section': function (t, options) {
-    return t.card('all').then(function (card) {
-      return {
-        title: 'Create reward offer',
-        icon: GRAY_ICON, // Must be a gray icon, colored icons not allowed.
-        content: {
-          type: 'iframe',
-          url: t.signUrl('./rwd-setting.html'),
-          height: 230, // Max height is 1500.
-          action: {
-            text: 'Create',
-            callback: (t) => t.popup('we run'),
-          },
-        },
-      }
-    })
+  'card-buttons': function (t, opts) {
+    return [
+      {
+        icon: GRAY_ICON,
+        text: 'Add reward',
+        callback: btnCallback,
+      },
+    ]
   },
 })
