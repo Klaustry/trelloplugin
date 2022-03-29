@@ -64,7 +64,6 @@ TrelloPowerUp.initialize({
     //console.log(t, opts)
     return [
       {
-        icon: GRAY_ICON,
         text: `💳 Add reward`,
         callback: btnCallback,
       },
