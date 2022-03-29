@@ -47,3 +47,10 @@ button {
   background-color: #6cc04a;
   color: #fff;
 }
+
+button:hover {
+  height: 35px;
+  width: 100%;
+  background-color: #6fcf4f;
+  color: #fff;
+}
