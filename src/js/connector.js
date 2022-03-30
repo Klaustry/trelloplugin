@@ -1,5 +1,5 @@
 console.log('hello world!')
-console.log('t.get', get)
+//console.log('t.get', get)
 
 //const trello = TrelloPowerUp.iframe()
 
@@ -16,9 +16,8 @@ var onBtnClick = function (t, opts) {
 }
 
 //var addRewardButton = document.getElementById('addRewardButton')
-const get = function () {
-  var t = window.TrelloPowerUp.iframe()
-  return t.get('board', 'shared', 'myKey').then(function (data) {
+const get = async function (t) {
+  return await t.get('all').then(function (data) {
     console.log(JSON.stringify(data, null, 2))
   })
 }
@@ -125,7 +124,7 @@ TrelloPowerUp.initialize({
           light: BLACK_ICON,
         },
         text: 'exit',
-        callback: () => disconnectWallet(),
+        callback: () => get(t),
         condition: 'edit',
       },
     ]
