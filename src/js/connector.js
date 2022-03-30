@@ -51,8 +51,11 @@ async function getSliceAddress() {
 }
 
 async function getAccount() {
-  const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-  return await accounts[0]
+  if (ethereum.isConnected()) {
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+    return await accounts[0]
+  }
+  return await null
 }
 
 async function connectWallet() {
@@ -61,14 +64,6 @@ async function connectWallet() {
 }
 
 async function disconnectWallet() {
-  await window.ethereum.request({
-    method: 'eth_requestAccounts',
-    params: [
-      {
-        eth_accounts: {},
-      },
-    ],
-  })
   console.log('MetaMask discconnected')
 }
 
@@ -111,9 +106,10 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: ethereum.isConnected()
-          ? await getSliceAddress()
-          : 'Connect wallet',
+        text:
+          (await getSliceAddress()) != null
+            ? await getSliceAddress()
+            : 'Connect wallet',
         callback: () => connectWallet(),
         condition: 'edit',
       },
