@@ -16,8 +16,10 @@ var onBtnClick = function (t, opts) {
 }
 
 //var addRewardButton = document.getElementById('addRewardButton')
-const get = async function (t) {
-  return await t.get('all').then(function (data) {
+const get = async function (f) {
+  var t = window.TrelloPowerUp.iframe()
+
+  return t.getAll().then(function (data) {
     console.log(JSON.stringify(data, null, 2))
   })
 }
