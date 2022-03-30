@@ -100,7 +100,7 @@ TrelloPowerUp.initialize({
             dark: WHITE_ICON,
             light: BLACK_ICON,
           },
-          text: address !== null ? address : 'CONNECT WALLET',
+          text: address,
           callback: connectWallet,
           condition: 'edit',
         },
