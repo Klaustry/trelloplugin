@@ -46,7 +46,7 @@ const sendRewardParams = (blockcahin, token, amount) => {
 const getAddress = async () => {
   const address = await getAccount()
   console.log('Client address', address)
-  return address > 0 ? address : null
+  return await address
 }
 
 async function getAccount() {
