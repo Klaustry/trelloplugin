@@ -9,7 +9,7 @@ document
     trello.closePopup()
   })
 
-var createRewardClick = function (t, opts) {
-  console.log('createRewardClick clicked!')
-  t.closePopup()
-}
+// var createRewardClick = function (t, opts) {
+//   console.log('createRewardClick clicked!')
+//   t.closePopup()
+// }
