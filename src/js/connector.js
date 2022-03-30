@@ -39,14 +39,22 @@ var btnCallback = function (t, opts) {
   })
 }
 
-var addRewardClick = function (t, opts) {
+const sendRewardParams = (blockcahin, token, amount) => {
+  console.log('sendRewardParams', blockcahin, token, amount)
+}
+
+document.getElementById('addRewardButton') &&
   document
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
+      sendRewardParams(
+        document.getElementById('idSelectBlockChain'),
+        document.getElementById('idAmount'),
+        document.getElementById('idSelectToken'),
+      )
       console.log('addReward Clicked!')
       t.closePopup()
     })
-}
 
 //console.log('window', document.getElementById('addRewardButton'))
 
