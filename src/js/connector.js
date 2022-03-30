@@ -62,7 +62,7 @@ async function connectWallet() {
 
 async function disconnectWallet() {
   await window.ethereum.request({
-    method: 'wallet_requestPermissions',
+    method: 'eth_requestAccounts',
     params: [
       {
         eth_accounts: {},
