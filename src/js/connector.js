@@ -99,8 +99,8 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: getAddress(),
-        callback: onBtnClick,
+        text: getAddress,
+        callback: connectWallet,
         condition: 'edit',
       },
     ]
