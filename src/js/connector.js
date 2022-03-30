@@ -39,11 +39,11 @@ var btnCallback = function (t, opts) {
   })
 }
 
-window.addRewardButton.addEventListener('click', function (event) {
+addRewardButton.addEventListener('click', function (event) {
   var f
   console.log('addReward Clicked!')
   f.then(function () {
-    t.closePopup()
+    trello.closePopup()
   })
 })
 
