@@ -55,18 +55,18 @@ async function getAccount() {
   return await accounts[0]
 }
 
-async function connectWallet() {
-  await ethereum.request({ method: 'eth_requestAccounts' })
+function connectWallet() {
+  //await ethereum.request({ method: 'eth_requestAccounts' })
+  console.log('MetaMask connected')
 }
 
-async function disconnectWallet() {
-  const ethereum = window.ethereum
-  if (ethereum) {
-    // Listening to Event
-    ethereum.on('disconnect', () => {
-      console.log('MetaMask discconnected')
-    })
-  }
+function disconnectWallet() {
+  // const ethereum = window.ethereum
+  // if (ethereum) {
+  //   ethereum.on('disconnect', () => {
+  console.log('MetaMask discconnected')
+  //   })
+  // }
 }
 
 document.getElementById('addRewardButton') &&
@@ -104,7 +104,6 @@ TrelloPowerUp.initialize({
   'board-buttons': async function (t, opts) {
     return [
       {
-        // we can either provide a button that has a callback function
         icon: {
           dark: WHITE_ICON,
           light: BLACK_ICON,
@@ -116,7 +115,6 @@ TrelloPowerUp.initialize({
         condition: 'edit',
       },
       {
-        // we can either provide a button that has a callback function
         icon: {
           dark: WHITE_ICON,
           light: BLACK_ICON,
