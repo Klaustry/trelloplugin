@@ -56,7 +56,6 @@ async function getAccount() {
 
 async function connectWallet() {
   await ethereum.request({ method: 'eth_requestAccounts' })
-  await getAddress()
 }
 
 async function disconnectWallet() {
