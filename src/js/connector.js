@@ -39,7 +39,7 @@ var btnCallback = function (t, opts) {
   })
 }
 
-console.log('window', window.document)
+console.log('window', document.getElementById('addRewardButton'))
 
 // addRewardButton.addEventListener('click', function (event) {
 //   console.log('addReward Clicked!')
