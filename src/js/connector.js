@@ -1,5 +1,7 @@
 console.log('hello world!')
 
+const trello = TrelloPowerUp.iframe()
+
 var WHITE_ICON =
   'https://everkit.org/everscale-branding-v1.0.0/badge/svg/everscale_badge_main_round.svg'
 var BLACK_ICON =
@@ -35,6 +37,22 @@ var btnCallback = function (t, opts) {
     height: 210, // initial height, can be changed later
     callback: createRewardClick,
   })
+}
+
+console.log('window', document.getElementById('addRewardButton'))
+
+document.getElementById('addRewardButton')
+  ? document
+      .getElementById('addRewardButton')
+      .addEventListener('click', function (event) {
+        console.log('addReward Clicked!')
+        trello.closePopup()
+      })
+  : null
+
+var createRewardClick = function (t, opts) {
+  console.log('createRewardClick clicked!')
+  t.closePopup()
 }
 
 TrelloPowerUp.initialize({
