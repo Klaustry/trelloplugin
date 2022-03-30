@@ -56,16 +56,16 @@ async function getAccount() {
 }
 
 function connectWallet() {
-  //await ethereum.request({ method: 'eth_requestAccounts' })
+  await ethereum.request({ method: 'eth_requestAccounts' })
   console.log('MetaMask connected')
 }
 
 function disconnectWallet() {
   // const ethereum = window.ethereum
   // if (ethereum) {
-  //   ethereum.on('disconnect', () => {
+     ethereum.on('disconnect', () => {
   console.log('MetaMask discconnected')
-  //   })
+     })
   // }
 }
 
