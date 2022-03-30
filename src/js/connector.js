@@ -61,11 +61,12 @@ async function connectWallet() {
 
 async function disconnectWallet() {
   const ethereum = window.ethereum
-      if (ethereum) {
-      // Listening to Event
-      ethereum.on('disconnect', () => {
-        console.log("MetaMask discconnected")
-  })
+  if (ethereum) {
+    // Listening to Event
+    ethereum.on('disconnect', () => {
+      console.log('MetaMask discconnected')
+    })
+  }
 }
 
 document.getElementById('addRewardButton') &&
