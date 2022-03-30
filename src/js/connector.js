@@ -91,21 +91,19 @@ TrelloPowerUp.initialize({
       return getCardRewardInfo(card)
     })
   },
-  'board-buttons': function (t, opts) {
-    getAddress().then(function (address) {
-      return [
-        {
-          // we can either provide a button that has a callback function
-          icon: {
-            dark: WHITE_ICON,
-            light: BLACK_ICON,
-          },
-          text: address,
-          callback: connectWallet,
-          condition: 'edit',
+  'board-buttons': async function (t, opts) {
+    return [
+      {
+        // we can either provide a button that has a callback function
+        icon: {
+          dark: WHITE_ICON,
+          light: BLACK_ICON,
         },
-      ]
-    })
+        text: await address(),
+        callback: connectWallet,
+        condition: 'edit',
+      },
+    ]
   },
   'card-buttons': function (t, opts) {
     //console.log(t, opts)
