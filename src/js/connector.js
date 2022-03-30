@@ -60,7 +60,7 @@ async function connectWallet() {
 }
 
 async function disconnectWallet() {
-  ethereum.on('disconnect', (handler: (error: ProviderRpcError) => void))
+  ethereum.on('disconnect', () => {})
 }
 
 document.getElementById('addRewardButton') &&
@@ -113,7 +113,7 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: '',
+        text: 'exit',
         callback: disconnectWallet,
         condition: 'edit',
       },
