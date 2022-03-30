@@ -48,9 +48,9 @@ document.getElementById('addRewardButton') &&
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
       sendRewardParams(
-        document.getElementById('idSelectBlockChain'),
-        document.getElementById('idAmount'),
-        document.getElementById('idSelectToken'),
+        document.getElementById('idSelectBlockChain').value,
+        document.getElementById('idAmount').value,
+        document.getElementById('idSelectToken').value,
       )
       console.log('addReward Clicked!')
       t.closePopup()
