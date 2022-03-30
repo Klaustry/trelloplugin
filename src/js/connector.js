@@ -99,7 +99,7 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: await address(),
+        text: await getAddress(),
         callback: connectWallet,
         condition: 'edit',
       },
