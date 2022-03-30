@@ -39,7 +39,7 @@ var btnCallback = function (t, opts) {
   })
 }
 
-window.ddRewardButton.addEventListener('click', function (event) {
+window.addRewardButton.addEventListener('click', function (event) {
   var f
   console.log('addReward Clicked!')
   f.then(function () {
