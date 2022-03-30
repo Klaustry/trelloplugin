@@ -44,10 +44,9 @@ const sendRewardParams = (blockcahin, token, amount) => {
 }
 
 async function getSliceAddress() {
-  return getAccount().then((res) => {
-    res.slice(0, 5) + '...' + res.slice(5, -1)
-  })
-  //console.log('Client address', address)
+  const address = await getAccount()
+  console.log('Client address', address)
+  address.slice(0, 5) + '...' + address.slice(5, -1)
 }
 
 async function getAccount() {
@@ -61,7 +60,7 @@ async function connectWallet() {
 }
 
 async function disconnectWallet() {
-  ethereum.on('disconnect', null)
+  ethereum.on('disconnect', (handler: (error: ProviderRpcError) => void))
 }
 
 document.getElementById('addRewardButton') &&
@@ -104,9 +103,7 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: ethereum.isConnected()
-          ? await getSliceAddress()
-          : 'Connect wallet',
+        text: (await getSliceAddress()) ? getSliceAddress() : 'Connect wallet',
         callback: connectWallet,
         condition: 'edit',
       },
