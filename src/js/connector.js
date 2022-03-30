@@ -46,7 +46,7 @@ const sendRewardParams = (blockcahin, token, amount) => {
 async function getSliceAddress() {
   const address = await getAccount()
   console.log('Client address', address)
-  address.slice(0, 5) + '...' + address.slice(5, -1)
+  return address.slice(0, 5) + '...' + address.slice(5, -1)
 }
 
 async function getAccount() {
@@ -102,7 +102,7 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: (await ethereum.isConnected())
+        text: ethereum.isConnected()
           ? await getSliceAddress()
           : 'Connect wallet',
         callback: () => connectWallet(),
