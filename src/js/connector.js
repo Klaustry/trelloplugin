@@ -14,7 +14,7 @@ var onBtnClick = function (t, opts) {
   console.log('Someone clicked the button')
 }
 
-var addRewardButton = document.getElementById('addRewardButton')
+//var addRewardButton = document.getElementById('addRewardButton')
 
 const getCardRewardInfo = function (card) {
   if (card.idShort > 2 && card.idShort < 6)
@@ -39,10 +39,12 @@ var btnCallback = function (t, opts) {
   })
 }
 
-addRewardButton.addEventListener('click', function (event) {
-  console.log('addReward Clicked!')
-  trello.closePopup()
-})
+console.log('window', window.document)
+
+// addRewardButton.addEventListener('click', function (event) {
+//   console.log('addReward Clicked!')
+//   trello.closePopup()
+// })
 
 var createRewardClick = function (t, opts) {
   console.log('createRewardClick clicked!')
