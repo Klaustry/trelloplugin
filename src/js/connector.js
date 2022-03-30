@@ -1,4 +1,5 @@
 console.log('hello world!')
+console.log('ethereum', ethereum)
 
 //const trello = TrelloPowerUp.iframe()
 
@@ -46,7 +47,7 @@ const sendRewardParams = (blockcahin, token, amount) => {
 async function getSliceAddress() {
   const address = await getAccount()
   console.log('Client address', address)
-  return address.slice(0, 5) + '...' + address.slice(5, -1)
+  return address.slice(0, 5) + '...' + address.slice(-5, -1)
 }
 
 async function getAccount() {
