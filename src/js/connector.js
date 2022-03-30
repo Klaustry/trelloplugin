@@ -43,6 +43,22 @@ const sendRewardParams = (blockcahin, token, amount) => {
   console.log('sendRewardParams', blockcahin, token, amount)
 }
 
+const getAddress = async () => {
+  const address = await getAccount()
+  console.log('Client address', address)
+  return wallet
+}
+
+async function getAccount() {
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+  return await accounts[0]
+}
+
+async function connectWallet() {
+  await ethereum.request({ method: 'eth_requestAccounts' })
+  await getAddress()
+}
+
 document.getElementById('addRewardButton') &&
   document
     .getElementById('addRewardButton')
@@ -83,7 +99,7 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: '0:c809...0563',
+        text: getAddress(),
         callback: onBtnClick,
         condition: 'edit',
       },
