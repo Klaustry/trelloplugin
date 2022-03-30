@@ -35,7 +35,7 @@ var btnCallback = function (t, opts) {
     url: './rwd-setting.html',
     args: { myArgs: 'You can access these with t.arg()' },
     height: 210, // initial height, can be changed later
-    callback: addRewardClick,
+    callback: (e) => console.log('callback', e),
   })
 }
 
