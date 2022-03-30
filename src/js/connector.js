@@ -1,5 +1,5 @@
 console.log('hello world!')
-console.log('ethereum', ethereum)
+console.log('t.get', get)
 
 //const trello = TrelloPowerUp.iframe()
 
@@ -16,6 +16,12 @@ var onBtnClick = function (t, opts) {
 }
 
 //var addRewardButton = document.getElementById('addRewardButton')
+const get = function () {
+  var t = window.TrelloPowerUp.iframe()
+  return t.get('board', 'shared', 'myKey').then(function (data) {
+    console.log(JSON.stringify(data, null, 2))
+  })
+}
 
 const getCardRewardInfo = function (card) {
   if (card.idShort > 2 && card.idShort < 6)
