@@ -53,7 +53,7 @@ document.getElementById('addRewardButton') &&
         document.getElementById('idSelectToken').value,
       )
       console.log('addReward Clicked!')
-      t.closePopup()
+      TrelloPowerUp.iframe().closePopup()
     })
 
 //console.log('window', document.getElementById('addRewardButton'))
