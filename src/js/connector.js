@@ -41,10 +41,12 @@ var btnCallback = function (t, opts) {
 
 console.log('window', document.getElementById('addRewardButton'))
 
-// addRewardButton.addEventListener('click', function (event) {
-//   console.log('addReward Clicked!')
-//   trello.closePopup()
-// })
+document
+  .getElementById('addRewardButton')
+  .addEventListener('click', function (event) {
+    console.log('addReward Clicked!')
+    trello.closePopup()
+  })
 
 var createRewardClick = function (t, opts) {
   console.log('createRewardClick clicked!')
