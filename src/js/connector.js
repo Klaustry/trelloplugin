@@ -40,11 +40,8 @@ var btnCallback = function (t, opts) {
 }
 
 addRewardButton.addEventListener('click', function (event) {
-  var f
   console.log('addReward Clicked!')
-  f.then(function () {
-    trello.closePopup()
-  })
+  trello.closePopup()
 })
 
 var createRewardClick = function (t, opts) {
