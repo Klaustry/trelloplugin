@@ -122,7 +122,7 @@ TrelloPowerUp.initialize({
           light: BLACK_ICON,
         },
         text: 'exit',
-        callback: () => await disconnectWallet(),
+        callback: () => disconnectWallet(),
         condition: 'edit',
       },
     ]
