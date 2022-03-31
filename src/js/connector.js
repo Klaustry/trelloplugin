@@ -4,11 +4,9 @@ import { getCard } from './contract.js'
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 
-const getCardRewardInfo = async function (cardID) {
-  //console.log('cardID', cardID.id)
-  return await getCard(cardID.id)
+const getCardRewardInfo = function (cardID) {
+  return getCard(cardID.id)
     .then(function (e) {
-      //console.log('response', e)
       if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
@@ -71,6 +69,7 @@ async function getSliceAddress() {
   if (ethereum.isConnected()) {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
     const account = accounts[0]
+    getAccount()
     return account.slice(0, 5) + '...' + account.slice(-5, -1)
   } else {
     return 'Connect wallet'
