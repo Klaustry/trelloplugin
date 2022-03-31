@@ -68,12 +68,12 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress() {
-  if (getAccount()) {
-    const address = await getAccount()[0]
-    console.log('Client address', address)
-    return address.slice(0, 5) + '...' + address.slice(-5, -1)
+  if (ethereum.isConnected()) {
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+    const account = accounts[0]
+    return account.slice(0, 5) + '...' + account.slice(-5, -1)
   } else {
-    return false
+    return 'Connect wallet'
   }
 }
 
@@ -115,7 +115,7 @@ TrelloPowerUp.initialize({
     return [
       {
         icon: ICON,
-        text: getSliceAddress() || 'Connect wallet',
+        text: getSliceAddress(),
         callback: () => connectWallet(),
         condition: 'edit',
       },
