@@ -31,12 +31,7 @@ const getCardRewardInfo = async function (cardID) {
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
           {
             title: 'Status',
-            text: `🟢 Active`,
-          },
-          {
-            title: 'Action',
-            text: `Perform`,
-            callback: () => console.log('perform'),
+            text: performerID === '' ? `🟢 Active` : `🔵 In work`,
           },
         ]
       } else return []
