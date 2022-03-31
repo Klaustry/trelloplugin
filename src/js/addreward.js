@@ -1,4 +1,4 @@
-import { addCard } from '../js/contract.js'
+//import { addCard } from '../js/contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 console.log(t.getContext())

@@ -129,7 +129,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
 
-export async function addCard(cardID, creatorID, amount, token) {
+async function addCard(cardID, creatorID, amount, token) {
   await ethereum.request({ method: 'eth_requestAccounts' })
   console.log('MetaMask connected')
   const res = await contract.addCard(cardID, creatorID, amount, token)
@@ -137,11 +137,11 @@ export async function addCard(cardID, creatorID, amount, token) {
   return await res
 }
 
-export async function eddCard(cardID, creatorID, amount, token) {
+async function eddCard(cardID, creatorID, amount, token) {
   return 'FFFFFFFFFFFFFFFFFFFF'
 }
 
-export async function addPerformer() {
+async function addPerformer() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.addPerformer('234', '234')
@@ -155,7 +155,7 @@ export async function addPerformer() {
   }
 }
 
-export async function getCard() {
+async function getCard() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.cardInfo('234')
