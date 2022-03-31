@@ -24,7 +24,7 @@ const sendRewardParams = async (blockcahin, amount, token) => {
     console.log('amount', amount)
     try {
       const r = await eddCard(context.card, context.member, amount, token)
-      consolelog(r)
+      console.log(r)
       //   t.alert({
       //     message: '✔️ Great! You created an award!',
       //     duration: 1,
