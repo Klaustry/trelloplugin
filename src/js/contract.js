@@ -129,10 +129,10 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
 
-export async function addCard() {
+export async function addCard(cardID, creatorID, amount, token) {
   if (typeof window.ethereum !== 'undefined') {
     try {
-      const res = await contract.addCard('234', '234', 12, 'qwe')
+      const res = await contract.addCard(cardID, creatorID, amount, token)
       console.log('response', res)
     } catch (error) {
       console.log(error)
