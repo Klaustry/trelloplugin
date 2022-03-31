@@ -64,21 +64,6 @@ async function connectWallet() {
 //   console.log('MetaMask discconnected')
 // }
 
-document.getElementById('addRewardButton') &&
-  document
-    .getElementById('addRewardButton')
-    .addEventListener('click', function (event) {
-      var t = window.TrelloPowerUp.iframe()
-      console.log(t.arg('myArg'))
-      sendRewardParams(
-        document.getElementById('idSelectBlockChain').value,
-        document.getElementById('idAmount').value,
-        document.getElementById('idSelectToken').value,
-      )
-      console.log('addReward Clicked!')
-      TrelloPowerUp.iframe().closePopup()
-    })
-
 //console.log('window', document.getElementById('addRewardButton'))
 
 // var createRewardClick = function (t, opts) {

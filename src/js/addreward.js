@@ -1,15 +1,15 @@
-console.log('window', document.getElementById('addRewardButton'))
+var t = window.TrelloPowerUp.iframe()
+console.log(t.arg('myArg'))
 
-const trello = TrelloPowerUp.iframe()
-
-document
-  .getElementById('addRewardButton')
-  .addEventListener('click', function (event) {
-    console.log('addReward Clicked!')
-    trello.closePopup()
-  })
-
-// var createRewardClick = function (t, opts) {
-//   console.log('createRewardClick clicked!')
-//   t.closePopup()
-// }
+document.getElementById('addRewardButton') &&
+  document
+    .getElementById('addRewardButton')
+    .addEventListener('click', function (event) {
+      sendRewardParams(
+        document.getElementById('idSelectBlockChain').value,
+        document.getElementById('idAmount').value,
+        document.getElementById('idSelectToken').value,
+      )
+      console.log('addReward Clicked!')
+      TrelloPowerUp.iframe().closePopup()
+    })
