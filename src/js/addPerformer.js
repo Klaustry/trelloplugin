@@ -20,7 +20,7 @@ document.getElementById('cancelButton') &&
 
 const sendRewardParams = async () => {
   const context = t.getContext()
-  console.log('Context', context.card, context.member, context.organization)
+  //console.log('Context', context.card, context.member, context.organization)
   addPerformer(context.card, context.member)
     .then((e) => {
       console.log('Success', e)
@@ -29,6 +29,7 @@ const sendRewardParams = async () => {
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
       })
+      window.location.reload()
     })
     .catch((e) => {
       t.closePopup()
