@@ -34,9 +34,9 @@ var btnCallback = function (t, opts) {
   return t.popup({
     title: 'Create reward offer',
     url: './rwd-setting.html',
-    args: { myArgs: 'You can access these with t.arg()' },
+    //args: { myArgs: 'You can access these with t.arg()' },
     height: 210, // initial height, can be changed later
-    callback: (e) => console.log('callback', e),
+    //callback: (e) => console.log('callback', e),
   })
 }
 
