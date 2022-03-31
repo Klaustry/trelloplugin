@@ -12,7 +12,7 @@ document.getElementById('addRewardButton') &&
         document.getElementById('idSelectToken').value,
       )
       console.log('addReward Clicked!')
-      TrelloPowerUp.iframe().closePopup()
+      t.closePopup()
     })
 
 const sendRewardParams = (blockcahin, token, amount) => {
