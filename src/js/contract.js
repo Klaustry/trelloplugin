@@ -12,10 +12,10 @@ export async function addCard(cardID, creatorID, amount, token) {
   return await res
 }
 
-export async function addPerformer() {
+export async function addPerformer(cardID, performerID) {
   if (typeof window.ethereum !== 'undefined') {
     try {
-      const res = await contract.addPerformer('234', '234')
+      const res = await contract.addPerformer(cardID, performerID)
       console.log('response', res)
     } catch (error) {
       console.log(error)
