@@ -1,7 +1,4 @@
 console.log('hello world!')
-//console.log('t.get', get)
-
-//const trello = TrelloPowerUp.iframe()
 
 var WHITE_ICON =
   'https://everkit.org/everscale-branding-v1.0.0/badge/svg/everscale_badge_main_round.svg'
@@ -16,11 +13,11 @@ var onBtnClick = function (t, opts) {
 }
 
 //var addRewardButton = document.getElementById('addRewardButton')
-const get = async function (t) {
-  return t.getAll().then(function (data) {
-    console.log(data)
-  })
-}
+// const get = async function (t) {
+//   return t.getAll().then(function (data) {
+//     console.log(data)
+//   })
+// }
 
 const getCardRewardInfo = function (card) {
   if (card.idShort > 2 && card.idShort < 6)
@@ -56,11 +53,8 @@ async function getSliceAddress() {
 }
 
 async function getAccount() {
-  if (ethereum.isConnected()) {
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-    return await accounts[0]
-  }
-  return await null
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+  return await accounts[0]
 }
 
 async function connectWallet() {
@@ -68,9 +62,9 @@ async function connectWallet() {
   console.log('MetaMask connected')
 }
 
-async function disconnectWallet() {
-  console.log('MetaMask discconnected')
-}
+// async function disconnectWallet() {
+//   console.log('MetaMask discconnected')
+// }
 
 document.getElementById('addRewardButton') &&
   document
@@ -112,7 +106,9 @@ TrelloPowerUp.initialize({
           light: BLACK_ICON,
         },
         text: ethereum.isConnected() ? getSliceAddress() : 'Connect wallet',
-        callback: () => connectWallet(),
+        callback: () => {
+          console.log('connect')
+        },
         condition: 'edit',
       },
       {
@@ -129,8 +125,6 @@ TrelloPowerUp.initialize({
     ]
   },
   'card-buttons': function (t, opts) {
-    var context = t.getContext()
-    console.log(context)
     //console.log(t, opts)
     return [
       {
