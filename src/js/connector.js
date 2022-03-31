@@ -102,7 +102,6 @@ async function connectWallet() {
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
     return t.card('id').then(function (cardID) {
-      console.log(cardID)
       return getCardRewardInfo(cardID)
     })
   },
@@ -112,14 +111,27 @@ TrelloPowerUp.initialize({
     })
   },
   'board-buttons': async function (t, opts) {
-    return [
-      {
-        icon: ICON,
-        text: 'Connect wallet',
-        callback: () => connectWallet(),
-        condition: 'edit',
-      },
-    ]
+    getSliceAddress()
+      .then(function (e) {
+        return [
+          {
+            icon: ICON,
+            text: e.toString(),
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
+      })
+      .catch(function () {
+        return [
+          {
+            icon: ICON,
+            text: 'Connect wallet',
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
+      })
   },
   'card-buttons': function (t, opts) {
     //console.log(t, opts)
