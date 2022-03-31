@@ -100,7 +100,9 @@ TrelloPowerUp.initialize({
   },
   'board-buttons': async function (t, opts) {
     console.log('TTTTTTTTTTTTT', t.getContext())
-    console.log('options', options)
+    console.log('TTTTTTTTTTTTr', t)
+    //console.log('TTTTTTTTTTTTf', t.getContext())
+    //console.log('TTTTTTTTTTTTg', t.getContext())
     return [
       {
         icon: {
