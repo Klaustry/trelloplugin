@@ -2,24 +2,7 @@ console.log('hello world!')
 
 import { getCard } from './contract.js'
 
-var WHITE_ICON =
-  'https://everkit.org/everscale-branding-v1.0.0/badge/svg/everscale_badge_main_round.svg'
-var BLACK_ICON =
-  'https://everkit.org/everscale-branding-v1.0.0/badge/svg/everscale_badge_main_round.svg'
-
-var GRAY_ICON =
-  'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg'
-
-var onBtnClick = function (t, opts) {
-  console.log('Someone clicked the button')
-}
-
-//var addRewardButton = document.getElementById('addRewardButton')
-// const get = async function (t) {
-//   return t.getAll().then(function (data) {
-//     console.log(data)
-//   })
-// }
+var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 
 const getCardRewardInfo = async function (cardID) {
   console.log('cardID', cardID.id)
@@ -85,14 +68,17 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress() {
-  const address = await getAccount()
+  const address = await getAccount()[0]
   console.log('Client address', address)
-  return address.slice(0, 5) + '...' + address.slice(-5, -1)
+  return getAccount()
+    ? address.slice(0, 5) + '...' + address.slice(-5, -1)
+    : false
 }
 
-async function getAccount() {
-  const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-  return await accounts[0]
+const getAccount = async () => {
+  ethereum.isConnected()
+    ? await ethereum.request({ method: 'eth_requestAccounts' })
+    : false
 }
 
 async function connectWallet() {
@@ -126,23 +112,9 @@ TrelloPowerUp.initialize({
   'board-buttons': async function (t, opts) {
     return [
       {
-        icon: {
-          dark: WHITE_ICON,
-          light: BLACK_ICON,
-        },
+        icon: ICON,
         text: 'Connect wallet',
         callback: () => connectWallet(),
-        condition: 'edit',
-      },
-      {
-        icon: {
-          dark: WHITE_ICON,
-          light: BLACK_ICON,
-        },
-        text: 'exit',
-        callback: () => {
-          console.log('exit')
-        },
         condition: 'edit',
       },
     ]

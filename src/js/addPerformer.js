@@ -26,7 +26,7 @@ const sendRewardParams = async () => {
       console.log('Success', e)
       t.closePopup()
       t.alert({
-        message: '✔️ Great! You created an award!',
+        message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
       })
     })

@@ -11,13 +11,13 @@ document.getElementById('addRewardButton') &&
         document.getElementById('idAmount').value,
         document.getElementById('idSelectToken').value,
       )
-      console.log('addReward Clicked!')
+      //console.log('addReward Clicked!')
     })
 
 const sendRewardParams = async (blockcahin, amount, token) => {
   const context = t.getContext()
-  console.log('sendContext', context.card, context.member, context.organization)
-  console.log('sendRewardParams', blockcahin, amount, token)
+  //console.log('sendContext', context.card, context.member, context.organization)
+  //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log('amount', amount)
     addCard(context.card, context.member, amount, token)

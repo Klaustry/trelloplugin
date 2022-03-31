@@ -13,28 +13,11 @@ export async function addCard(cardID, creatorID, amount, token) {
 }
 
 export async function addPerformer(cardID, performerID) {
-  if (typeof window.ethereum !== 'undefined') {
-    try {
-      const res = await contract.addPerformer(cardID, performerID)
-      console.log('response', res)
-    } catch (error) {
-      console.log(error)
-    }
-  } else {
-    document.getElementById('executeButton').innerHTML =
-      'Please install MetaMask'
-  }
+  const res = await contract.addPerformer(cardID, performerID)
+  console.log('response', res)
+  return await res
 }
 
 export async function getCard(cardID) {
-  if (typeof window.ethereum !== 'undefined') {
-    try {
-      return await contract.cardInfo(cardID)
-    } catch (error) {
-      console.log(error)
-    }
-  } else {
-    document.getElementById('executeButton').innerHTML =
-      'Please install MetaMask'
-  }
+  return await contract.cardInfo(cardID)
 }
