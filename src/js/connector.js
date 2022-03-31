@@ -25,10 +25,10 @@ const getCardRewardInfo = async function (cardID) {
   console.log('cardID', cardID.id)
   return await getCard(cardID.id)
     .then(function (e) {
-      console.log('response', e.exists)
+      console.log('response', e)
       if (e.exists) {
         return [
-          { title: 'Reward', text: `💳 ${cardID} USDT` },
+          { title: 'Reward', text: `💳 ${e.exists} ${e.token}` },
           {
             title: 'Status',
             text: `🟢 Active`,
