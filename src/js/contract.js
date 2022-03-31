@@ -54,7 +54,7 @@ document.getElementById('addRewardButton') &&
             duration: 1,
           }),
         )
-      trello.closePopup()
+      //trello.closePopup()
       console.log('addReward Clicked!')
     })
 
