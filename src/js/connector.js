@@ -90,9 +90,7 @@ TrelloPowerUp.initialize({
           light: BLACK_ICON,
         },
         text: 'Connect wallet',
-        callback: () => {
-          console.log('connect')
-        },
+        callback: () => connectWallet(),
         condition: 'edit',
       },
       {
