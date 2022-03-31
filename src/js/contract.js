@@ -1,3 +1,5 @@
+import { ethers } from 'ethers'
+
 const contractAddress = '0x2C1b05D739aeCd2006c1a685BE3cAeeD1522895D'
 const abi = [
   {
