@@ -22,8 +22,8 @@ var onBtnClick = function (t, opts) {
 // }
 
 const getCardRewardInfo = async function (cardID) {
-  console.log('cardID', cardID)
-  return await getCard(cardID)
+  console.log('cardID', cardID.id)
+  return await getCard(cardID.id)
     .then(function (e) {
       console.log('response', e)
       if (1) {
