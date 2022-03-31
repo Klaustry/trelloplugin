@@ -144,6 +144,10 @@ export async function addCard(cardID, creatorID, amount, token) {
   }
 }
 
+export async function eddCard(cardID, creatorID, amount, token) {
+  return 'FFFFFFFFFFFFFFFFFFFF'
+}
+
 export async function addPerformer() {
   if (typeof window.ethereum !== 'undefined') {
     try {
