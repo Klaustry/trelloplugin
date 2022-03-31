@@ -33,6 +33,7 @@ textarea {
 .select-token {
   margin-left: 15px;
 }
+
 select {
   margin-bottom: 12px;
   height: 35px;
@@ -41,14 +42,14 @@ select {
   border: 2px solid #dfe1e6;
 }
 
-button {
+.button-success {
   height: 35px;
   width: 100%;
   background-color: #6cc04a;
   color: #fff;
 }
 
-button:hover {
+.button-success:hover {
   height: 35px;
   width: 100%;
   background-color: #6fcf4f;

@@ -71,15 +71,15 @@ const getRewardButton = async function (cardID) {
 var addReward = function (t) {
   return t.popup({
     title: 'Create reward offer',
-    url: './rwd-setting.html',
+    url: './addReward.html',
     height: 210,
   })
 }
 
 var addPerformer = function (t) {
   return t.popup({
-    title: 'Create reward offer',
-    url: './rwd-setting.html',
+    title: 'Get the job done',
+    url: './addPerformer.html',
     height: 210,
   })
 }
