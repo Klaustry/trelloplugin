@@ -25,9 +25,7 @@ const getCardRewardInfo = function (card) {
       { title: 'Reward', text: `💳 ${card.idShort * 100} USDT` },
       {
         title: 'Status',
-        icon:
-          'https://raw.githubusercontent.com/broxus/ton-assets/master/icons/USDTv3/logo.svg',
-        text: 'Active',
+        text: `🟢 Active`,
       },
     ]
   else return []
@@ -76,6 +74,8 @@ document.getElementById('addRewardButton') &&
         document.getElementById('idSelectToken').value,
       )
       console.log('addReward Clicked!')
+      console.log('addReward Clicked!', TrelloPowerUp.iframe().card(all))
+
       TrelloPowerUp.iframe().closePopup()
     })
 
