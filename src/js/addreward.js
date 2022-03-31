@@ -2,11 +2,6 @@ import { addCard } from '../js/contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 console.log(t.getContext())
-// console.log(t.args[0].context)
-// console.log('board', t.args[0].context.board)
-// console.log('card', t.args[0].context.card)
-// console.log('member', t.args[0].context.member)
-// console.log('organization', t.args[0].context.organization)
 
 document.getElementById('addRewardButton') &&
   document
@@ -25,4 +20,11 @@ const sendRewardParams = (blockcahin, token, amount) => {
   const context = t.getContext()
   console.log('sendContext', context.card, context.member, context.organization)
   console.log('sendRewardParams', blockcahin, token, amount)
+  if (amount > 0 && context.card) {
+  } else {
+    t.alert({
+      message: '❌ Error: Enter amount tokens!',
+      duration: 6,
+    })
+  }
 }
