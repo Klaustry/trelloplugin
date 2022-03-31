@@ -105,7 +105,7 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text: ethereum.isConnected() ? getSliceAddress() : 'Connect wallet',
+        text: 'Connect wallet',
         callback: () => {
           console.log('connect')
         },
