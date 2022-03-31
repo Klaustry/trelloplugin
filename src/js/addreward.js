@@ -21,6 +21,7 @@ const sendRewardParams = (blockcahin, token, amount) => {
   console.log('sendContext', context.card, context.member, context.organization)
   console.log('sendRewardParams', blockcahin, token, amount)
   if (Number(amount) > 0) {
+    console.log('amount', amount)
     t.alert({
       message: '✔️ Great! You created an award!',
       duration: 1,
