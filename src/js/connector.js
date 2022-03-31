@@ -22,7 +22,7 @@ var onBtnClick = function (t, opts) {
 // }
 
 const getCardRewardInfo = async function (cardID) {
-  return getCard(cardID)
+  return await getCard(cardID)
     .then(function (e) {
       console.log('response', e)
       if (1) {
