@@ -78,9 +78,10 @@ async function getSliceAddress() {
 }
 
 const getAccount = async () => {
-  ethereum.isConnected()
-    ? await ethereum.request({ method: 'eth_requestAccounts' })
-    : false
+  // ethereum.isConnected()
+  //   ? await ethereum.request({ method: 'eth_requestAccounts' })
+  //   : false
+  ethereum.on('accountsChanged', (accounts) => console.log(accounts))
 }
 
 async function connectWallet() {
