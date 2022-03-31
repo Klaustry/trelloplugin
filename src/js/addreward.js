@@ -31,6 +31,9 @@ const sendRewardParams = async (blockcahin, amount, token) => {
           message: '✔️ Great! You created an award!',
           duration: 1,
         })
+        setTimeout(() => {
+          location.href = location.href
+        }, 2000)
       })
       .catch((e) => {
         t.closePopup()

@@ -37,48 +37,50 @@ const getCardRewardInfo = async function (cardID) {
       } else return []
     })
     .catch(() => [])
-  //if (card.idShort > 2 && card.idShort < 6)
 }
 
 const getRewardButton = async function (cardID) {
-  console.log('cardID', cardID.id)
   return await getCard(cardID.id)
     .then(function (e) {
-      console.log('response', e)
       if (e.exists && e.performerID === '') {
         return [
           {
             text: `🤝 Take perform`,
-            callback: btnCallback,
+            callback: addPerformer,
           },
         ]
-      } else if (e.exists) {
-        return [
-          {
-            text: `❌ Сancel reward`,
-            callback: btnCallback,
-          },
-        ]
+        // } else if (e.exists) {
+        //   return [
+        //     {
+        //       text: `❌ Сancel reward`,
+        //       callback: () => {},
+        //     },
+        //   ]
       } else {
         return [
           {
             text: `💳 Add reward`,
-            callback: btnCallback,
+            callback: addReward,
           },
         ]
       }
     })
     .catch(() => [])
-  //if (card.idShort > 2 && card.idShort < 6)
 }
 
-var btnCallback = function (t, opts) {
+var addReward = function (t) {
   return t.popup({
     title: 'Create reward offer',
     url: './rwd-setting.html',
-    //args: { myArgs: 'You can access these with t.arg()' },
-    height: 210, // initial height, can be changed later
-    //callback: (e) => console.log('callback', e),
+    height: 210,
+  })
+}
+
+var addPerformer = function (t) {
+  return t.popup({
+    title: 'Create reward offer',
+    url: './rwd-setting.html',
+    height: 210,
   })
 }
 
