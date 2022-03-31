@@ -40,6 +40,38 @@ const getCardRewardInfo = async function (cardID) {
   //if (card.idShort > 2 && card.idShort < 6)
 }
 
+const getRewardButton = async function (cardID) {
+  console.log('cardID', cardID.id)
+  return await getCard(cardID.id)
+    .then(function (e) {
+      console.log('response', e)
+      if (e.exists && e.performerID === '') {
+        return [
+          {
+            text: `🤝 Take perform`,
+            callback: btnCallback,
+          },
+        ]
+      } else if (e.exists) {
+        return [
+          {
+            text: `❌ Сancel reward`,
+            callback: btnCallback,
+          },
+        ]
+      } else {
+        return [
+          {
+            text: `💳 Add reward`,
+            callback: btnCallback,
+          },
+        ]
+      }
+    })
+    .catch(() => [])
+  //if (card.idShort > 2 && card.idShort < 6)
+}
+
 var btnCallback = function (t, opts) {
   return t.popup({
     title: 'Create reward offer',
@@ -115,15 +147,8 @@ TrelloPowerUp.initialize({
   },
   'card-buttons': function (t, opts) {
     //console.log(t, opts)
-    return [
-      {
-        text: `💳 Add reward`,
-        callback: btnCallback,
-      },
-      // {
-      //   text: `🗨️ Test contract`,
-      //   callback: testCallback,
-      // },
-    ]
+    return t.card('id').then(function (cardID) {
+      return getRewardButton(cardID)
+    })
   },
 })
