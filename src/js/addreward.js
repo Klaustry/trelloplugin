@@ -1,6 +1,10 @@
 var t = window.TrelloPowerUp.iframe()
-//console.log(t.card(''))
-console.log(t.args)
+console.log(t.getContext())
+console.log(t.args[0].context)
+console.log('board', t.args[0].context.board)
+console.log('card', t.args[0].context.card)
+console.log('member', t.args[0].context.member)
+console.log('organization', t.args[0].context.organization)
 
 document.getElementById('addRewardButton') &&
   document
