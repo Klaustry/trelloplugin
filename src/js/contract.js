@@ -130,6 +130,8 @@ const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
 
 export async function addCard(cardID, creatorID, amount, token) {
+  await ethereum.request({ method: 'eth_requestAccounts' })
+  console.log('MetaMask connected')
   const res = await contract.addCard(cardID, creatorID, amount, token)
   console.log('response', res)
   return await res
