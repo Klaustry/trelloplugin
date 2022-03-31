@@ -24,7 +24,8 @@ var onBtnClick = function (t, opts) {
 const getCardRewardInfo = async (cardID) =>
   getCard(cardID)
     .then(function (e) {
-      if (e.exist) {
+      console.log('response', e)
+      if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${cardID * 100} USDT` },
           {
