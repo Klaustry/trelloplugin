@@ -20,20 +20,20 @@ var onBtnClick = function (t, opts) {
 // }
 
 const getCardRewardInfo = function (card) {
-  if (card.idShort > 2 && card.idShort < 6)
-    return [
-      { title: 'Reward', text: `💳 ${card.idShort * 100} USDT` },
-      {
-        title: 'Status',
-        text: `🟢 Active`,
-      },
-      {
-        title: 'Action',
-        text: `Perform`,
-        callback: () => console.log('perform'),
-      },
-    ]
-  else return []
+  //if (card.idShort > 2 && card.idShort < 6)
+  return [
+    { title: 'Reward', text: `💳 ${card * 100} USDT` },
+    {
+      title: 'Status',
+      text: `🟢 Active`,
+    },
+    {
+      title: 'Action',
+      text: `Perform`,
+      callback: () => console.log('perform'),
+    },
+  ]
+  //else return []
 }
 var btnCallback = function (t, opts) {
   return t.popup({
@@ -83,15 +83,15 @@ async function connectWallet() {
 // }
 
 TrelloPowerUp.initialize({
-  'card-badges': function (t, options) {
-    return t.card('all').then(function (card) {
-      console.log(card)
-      return getCardRewardInfo(card)
+  'card-badges': function (t) {
+    return t.card('id').then(function (cardID) {
+      console.log(cardID)
+      return getCardRewardInfo(cardID)
     })
   },
-  'card-detail-badges': function (t, options) {
-    return t.card('all').then(function (card) {
-      return getCardRewardInfo(card)
+  'card-detail-badges': function (t) {
+    return t.card('id').then(function (cardID) {
+      return getCardRewardInfo(cardID)
     })
   },
   'board-buttons': async function (t, opts) {
