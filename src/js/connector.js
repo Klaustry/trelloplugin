@@ -5,10 +5,10 @@ import { getCard } from './contract.js'
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 
 const getCardRewardInfo = async function (cardID) {
-  console.log('cardID', cardID.id)
+  //console.log('cardID', cardID.id)
   return await getCard(cardID.id)
     .then(function (e) {
-      console.log('response', e)
+      //console.log('response', e)
       if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
@@ -68,13 +68,16 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress() {
-  if (ethereum.isConnected()) {
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-    const account = accounts[0]
-    return account.slice(0, 5) + '...' + account.slice(-5, -1)
-  } else {
-    return 'Connect wallet'
-  }
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const address = provider.getAddress()
+  console.log('address', address)
+  // if (ethereum.isConnected()) {
+  //   const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+  //   const account = accounts[0]
+  //   return account.slice(0, 5) + '...' + account.slice(-5, -1)
+  // } else {
+  return 'Connect wallet'
+  //}
 }
 
 const getAccount = async () => {
