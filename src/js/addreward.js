@@ -24,7 +24,7 @@ const sendRewardParams = (blockcahin, token, amount) => {
   } else {
     t.alert({
       message: '❌ Error: Enter amount tokens!',
-      duration: 6,
+      duration: 1,
     })
   }
 }
