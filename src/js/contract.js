@@ -40,14 +40,20 @@ document.getElementById('addRewardButton') &&
         trello.args[0].context.member,
         parseInt(document.getElementById('idAmount').value),
         document.getElementById('idSelectToken').value,
-      ).then((e)=>{ console.log(r)
-        trello.alert({
-          message: `✔️ Great! You created an award!`,
-          duration: 1,
-        }).catch((e)=>trello.alert({
-          message: `❌ Error: ${e.message}`,
-          duration: 1,
-        })),})
+      )
+        .then((e) => {
+          console.log(r)
+          trello.alert({
+            message: `✔️ Great! You created an award!`,
+            duration: 1,
+          })
+        })
+        .catch((e) =>
+          trello.alert({
+            message: `❌ Error: ${e.message}`,
+            duration: 1,
+          }),
+        )
       trello.closePopup()
       console.log('addReward Clicked!')
     })
@@ -220,5 +226,3 @@ async function getCard() {
       'Please install MetaMask'
   }
 }
-
-getCard()
