@@ -68,9 +68,6 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress() {
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  const address = provider.getAddress()
-  console.log('address', address)
   // if (ethereum.isConnected()) {
   //   const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
   //   const account = accounts[0]
