@@ -1,5 +1,5 @@
 var t = window.TrelloPowerUp.iframe()
-console.log(t.arg('myArg'))
+console.log(t.arg('myArgs'))
 
 document.getElementById('addRewardButton') &&
   document
