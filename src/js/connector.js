@@ -27,6 +27,11 @@ const getCardRewardInfo = function (card) {
         title: 'Status',
         text: `🟢 Active`,
       },
+      {
+        title: 'Action',
+        text: `Perform`,
+        callback: () => console.log('perform'),
+      },
     ]
   else return []
 }
@@ -90,9 +95,6 @@ TrelloPowerUp.initialize({
     })
   },
   'board-buttons': async function (t, opts) {
-    //console.log('TTTTTTTTTTTTT', t.getContext())
-    //console.log('TTTTTTTTTTTTr', t)
-    //console.log('TTTTTTTTTTTTf', t.board({ id: '623c4cca9c930d46db5f8236' }))
     return [
       {
         icon: {
@@ -123,10 +125,10 @@ TrelloPowerUp.initialize({
         text: `💳 Add reward`,
         callback: btnCallback,
       },
-      {
-        text: `🗨️ Test contract`,
-        callback: testCallback,
-      },
+      // {
+      //   text: `🗨️ Test contract`,
+      //   callback: testCallback,
+      // },
     ]
   },
 })
