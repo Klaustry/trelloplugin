@@ -68,6 +68,8 @@ document.getElementById('addRewardButton') &&
   document
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
+      var t = window.TrelloPowerUp.iframe()
+      console.log(t.arg('myArg'))
       sendRewardParams(
         document.getElementById('idSelectBlockChain').value,
         document.getElementById('idAmount').value,
