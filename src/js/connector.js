@@ -25,8 +25,8 @@ const getCardRewardInfo = async function (cardID) {
   console.log('cardID', cardID.id)
   return await getCard(cardID.id)
     .then(function (e) {
-      console.log('response', e)
-      if (e[0].exists) {
+      console.log('response', e.exists)
+      if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${cardID} USDT` },
           {
