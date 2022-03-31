@@ -130,7 +130,7 @@ TrelloPowerUp.initialize({
   },
   'card-buttons': function (t, opts) {
     var context = t.getContext()
-    console.log(JSON.stringify(context, null, 2))
+    console.log(context)
     //console.log(t, opts)
     return [
       {
