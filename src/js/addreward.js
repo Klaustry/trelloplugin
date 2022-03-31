@@ -1,4 +1,4 @@
-import { eddCard } from '../js/contract.js'
+import { addCard } from '../js/contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 console.log(t.getContext())
@@ -23,7 +23,7 @@ const sendRewardParams = async (blockcahin, amount, token) => {
   if (amount > 0) {
     console.log('amount', amount)
     try {
-      const r = await eddCard(context.card, context.member, amount, token)
+      const r = await addCard(context.card, context.member, amount, token)
       console.log(r)
       //   t.alert({
       //     message: '✔️ Great! You created an award!',

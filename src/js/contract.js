@@ -130,18 +130,9 @@ const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
 
 export async function addCard(cardID, creatorID, amount, token) {
-  if (typeof window.ethereum !== 'undefined') {
-    try {
-      const res = await contract.addCard(cardID, creatorID, amount, token)
-      console.log('response', res)
-      return await res
-    } catch (error) {
-      console.log(error)
-    }
-  } else {
-    document.getElementById('executeButton').innerHTML =
-      'Please install MetaMask'
-  }
+  const res = await contract.addCard(cardID, creatorID, amount, token)
+  console.log('response', res)
+  return await res
 }
 
 export async function eddCard(cardID, creatorID, amount, token) {
