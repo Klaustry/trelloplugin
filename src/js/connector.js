@@ -78,9 +78,9 @@ var addReward = function (t) {
 
 var addPerformer = function (t) {
   return t.popup({
-    title: 'Get the job done',
+    title: 'take for execution',
     url: './addPerformer.html',
-    height: 210,
+    height: 100,
   })
 }
 
