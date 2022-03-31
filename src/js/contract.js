@@ -32,12 +32,15 @@ document.getElementById('addRewardButton') &&
   document
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
+      var t = window.TrelloPowerUp.iframe()
+      const context = t.getContext()
       addCard(
-        'www',
-        'qqqqqqqqqqq',
+        context.card,
+        context.member,
         parseInt(document.getElementById('idAmount').value),
         document.getElementById('idSelectToken').value,
       )
+      t.closePopup()
       console.log('addReward Clicked!')
     })
 
