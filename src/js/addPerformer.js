@@ -2,7 +2,6 @@ import { addCard } from './contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 const context = t.getContext()
-//console.log(t.getContext())
 
 document.getElementById('addRewardButton') &&
   document
