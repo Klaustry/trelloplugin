@@ -35,8 +35,7 @@ export async function addPerformer() {
 export async function getCard(cardID) {
   if (typeof window.ethereum !== 'undefined') {
     try {
-      const res = await contract.cardInfo(cardID)
-      console.log('getCard', res)
+      return await contract.cardInfo(cardID)
     } catch (error) {
       console.log(error)
     }
