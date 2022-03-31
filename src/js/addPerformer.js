@@ -29,7 +29,6 @@ const sendRewardParams = async () => {
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
       })
-      window.location.reload()
     })
     .catch((e) => {
       t.closePopup()
