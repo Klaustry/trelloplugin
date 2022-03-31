@@ -118,7 +118,7 @@ TrelloPowerUp.initialize({
         return [
           {
             icon: ICON,
-            text: 'ssssssssssss',
+            text: e.toString(),
             callback: () => connectWallet(),
             condition: 'edit',
           },
