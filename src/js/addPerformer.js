@@ -1,18 +1,12 @@
 import { addCard } from './contract.js'
 
 var t = window.TrelloPowerUp.iframe()
-const context = t.getContext()
 
-document.getElementById('addRewardButton') &&
+document.getElementById('addPerformButton') &&
   document
-    .getElementById('addRewardButton')
+    .getElementById('addPerformButton')
     .addEventListener('click', function (event) {
-      sendRewardParams(
-        document.getElementById('idSelectBlockChain').value,
-        document.getElementById('idAmount').value,
-        document.getElementById('idSelectToken').value,
-      )
-      addCard(context.card, context.member, parseInt(amount), token)
+      sendRewardParams()
       console.log('addReward Clicked!')
     })
 
@@ -30,9 +24,6 @@ const sendRewardParams = async (blockcahin, amount, token) => {
           message: '✔️ Great! You created an award!',
           duration: 1,
         })
-        setTimeout(() => {
-          location.href = location.href
-        }, 2000)
       })
       .catch((e) => {
         t.closePopup()
