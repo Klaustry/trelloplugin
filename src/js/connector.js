@@ -80,7 +80,7 @@ const getAccount = async () => {
   // ethereum.isConnected()
   //   ? await ethereum.request({ method: 'eth_requestAccounts' })
   //   : false
-  ethereum.on('accountsChanged', (accounts) => console.log(accounts))
+  console.log(await ethereum.request({ method: 'eth_accounts' }))
 }
 
 async function connectWallet() {
