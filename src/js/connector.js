@@ -40,6 +40,16 @@ var btnCallback = function (t, opts) {
   })
 }
 
+var testCallback = function (t, opts) {
+  return t.popup({
+    title: 'Create reward offer',
+    url: './test-wallet.html',
+    //args: { myArgs: 'You can access these with t.arg()' },
+    height: 210, // initial height, can be changed later
+    //callback: (e) => console.log('callback', e),
+  })
+}
+
 async function getSliceAddress() {
   const address = await getAccount()
   console.log('Client address', address)
@@ -112,6 +122,10 @@ TrelloPowerUp.initialize({
       {
         text: `💳 Add reward`,
         callback: btnCallback,
+      },
+      {
+        text: `💳 Add reward`,
+        callback: testCallback,
       },
     ]
   },
