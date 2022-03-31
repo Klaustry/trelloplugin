@@ -25,7 +25,7 @@ const getCardRewardInfo = async (cardID) =>
   getCard(cardID)
     .then(function (e) {
       console.log('response', e)
-      if (e.exists) {
+      if (1) {
         return [
           { title: 'Reward', text: `💳 ${cardID * 100} USDT` },
           {
