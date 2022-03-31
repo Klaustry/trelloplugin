@@ -23,19 +23,21 @@ var onBtnClick = function (t, opts) {
 
 const getCardRewardInfo = async (cardID) =>
   getCard(cardID)
-    .then(() => {
-      return [
-        { title: 'Reward', text: `💳 ${cardID * 100} USDT` },
-        {
-          title: 'Status',
-          text: `🟢 Active`,
-        },
-        {
-          title: 'Action',
-          text: `Perform`,
-          callback: () => console.log('perform'),
-        },
-      ]
+    .then(function (e) {
+      if (e.exist) {
+        return [
+          { title: 'Reward', text: `💳 ${cardID * 100} USDT` },
+          {
+            title: 'Status',
+            text: `🟢 Active`,
+          },
+          {
+            title: 'Action',
+            text: `Perform`,
+            callback: () => console.log('perform'),
+          },
+        ]
+      } else return []
     })
     .catch(() => [])
 //if (card.idShort > 2 && card.idShort < 6)
