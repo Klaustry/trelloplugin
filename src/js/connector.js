@@ -74,8 +74,6 @@ document.getElementById('addRewardButton') &&
         document.getElementById('idSelectToken').value,
       )
       console.log('addReward Clicked!')
-      console.log('addReward Clicked!', TrelloPowerUp.iframe().card(all))
-
       TrelloPowerUp.iframe().closePopup()
     })
 
