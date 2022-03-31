@@ -36,8 +36,8 @@ document.getElementById('addRewardButton') &&
       console.log('addReward Clicked!', trello.args[0])
       //const context = t.getContext()
       addCard(
-        'context.card',
-        'context.member',
+        trello.args[0].context.card,
+        trello.args[0].context.member,
         parseInt(document.getElementById('idAmount').value),
         document.getElementById('idSelectToken').value,
       )
