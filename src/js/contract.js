@@ -1,62 +1,62 @@
 import { ethers } from 'ethers'
 
-document.getElementById('connectWallet') &&
-  document
-    .getElementById('connectWallet')
-    .addEventListener('click', async function (event) {
-      await addCard('dfgdfg', 'dfgdfg', 23423, 'dfgdfg')
-    })
+// document.getElementById('connectWallet') &&
+//   document
+//     .getElementById('connectWallet')
+//     .addEventListener('click', async function (event) {
+//       await addCard('dfgdfg', 'dfgdfg', 23423, 'dfgdfg')
+//     })
 
-document.getElementById('addCard') &&
-  document
-    .getElementById('addCard')
-    .addEventListener('click', async function (event) {
-      await addCard('weer', 'dwer', 23423, 'derer')
-    })
+// document.getElementById('addCard') &&
+//   document
+//     .getElementById('addCard')
+//     .addEventListener('click', async function (event) {
+//       await addCard('weer', 'dwer', 23423, 'derer')
+//     })
 
-document.getElementById('addPerformer') &&
-  document
-    .getElementById('addPerformer')
-    .addEventListener('click', async function (event) {
-      await addPerformer()
-    })
+// document.getElementById('addPerformer') &&
+//   document
+//     .getElementById('addPerformer')
+//     .addEventListener('click', async function (event) {
+//       await addPerformer()
+//     })
 
-document.getElementById('getCard') &&
-  document
-    .getElementById('getCard')
-    .addEventListener('click', async function (event) {
-      await getCard()
-    })
+// document.getElementById('getCard') &&
+//   document
+//     .getElementById('getCard')
+//     .addEventListener('click', async function (event) {
+//       await getCard()
+//     })
 
-document.getElementById('addRewardButton') &&
-  document
-    .getElementById('addRewardButton')
-    .addEventListener('click', function (event) {
-      const trello = TrelloPowerUp.iframe()
-      console.log('addReward Clicked!', trello.args[0])
-      //const context = t.getContext()
-      addCard(
-        trello.args[0].context.card,
-        trello.args[0].context.member,
-        parseInt(document.getElementById('idAmount').value),
-        document.getElementById('idSelectToken').value,
-      )
-        .then((e) => {
-          trello.closePopup()
-          trello.alert({
-            message: `✔️ Great! You created an award!`,
-            duration: 1,
-          })
-        })
-        .catch((e) =>
-          trello.alert({
-            message: `❌ Error: ${e.message}`,
-            duration: 1,
-          }),
-        )
-      //
-      console.log('addReward Clicked!')
-    })
+// document.getElementById('addRewardButton') &&
+//   document
+//     .getElementById('addRewardButton')
+//     .addEventListener('click', function (event) {
+//       const trello = TrelloPowerUp.iframe()
+//       console.log('addReward Clicked!', trello.args[0])
+//       //const context = t.getContext()
+//       addCard(
+//         trello.args[0].context.card,
+//         trello.args[0].context.member,
+//         parseInt(document.getElementById('idAmount').value),
+//         document.getElementById('idSelectToken').value,
+//       )
+//         .then((e) => {
+//           trello.closePopup()
+//           trello.alert({
+//             message: `✔️ Great! You created an award!`,
+//             duration: 1,
+//           })
+//         })
+//         .catch((e) =>
+//           trello.alert({
+//             message: `❌ Error: ${e.message}`,
+//             duration: 1,
+//           }),
+//         )
+//       //
+//       console.log('addReward Clicked!')
+//     })
 
 const contractAddress = '0x2C1b05D739aeCd2006c1a685BE3cAeeD1522895D'
 const abi = [
@@ -187,7 +187,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
 
-async function addCard(cardID, creatorID, amount, token) {
+export async function addCard(cardID, creatorID, amount, token) {
   await ethereum.request({ method: 'eth_requestAccounts' })
   console.log('MetaMask connected')
   const res = await contract.addCard(cardID, creatorID, amount, token)
@@ -199,7 +199,7 @@ async function eddCard(cardID, creatorID, amount, token) {
   return 'FFFFFFFFFFFFFFFFFFFF'
 }
 
-async function addPerformer() {
+export async function addPerformer() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.addPerformer('234', '234')
@@ -213,7 +213,7 @@ async function addPerformer() {
   }
 }
 
-async function getCard() {
+export async function getCard() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.cardInfo('234')

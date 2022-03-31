@@ -1,4 +1,4 @@
-//import { addCard } from '../js/contract.js'
+import { addCard } from '../js/contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 const context = t.getContext()
@@ -15,7 +15,6 @@ document.getElementById('addRewardButton') &&
       )
       addCard(context.card, context.member, parseInt(amount), token)
       console.log('addReward Clicked!')
-      t.closePopup()
     })
 
 const sendRewardParams = async (blockcahin, amount, token) => {
@@ -24,17 +23,22 @@ const sendRewardParams = async (blockcahin, amount, token) => {
   console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log('amount', amount)
-    try {
-      const r = await addCard(context.card, context.member, amount, token)
-      console.log(r)
-      //   t.alert({
-      //     message: '✔️ Great! You created an award!',
-      //     duration: 1,
-      //   }),
-      // )
-    } catch (e) {
-      console.log(e)
-    }
+    addCard(context.card, context.member, amount, token)
+      .then((e) => {
+        console.log('Success', e)
+        t.closePopup()
+        t.alert({
+          message: '✔️ Great! You created an award!',
+          duration: 1,
+        })
+      })
+      .catch((e) => {
+        t.closePopup()
+        t.alert({
+          message: `❌ Error: ${e.message}!`,
+          duration: 1,
+        })
+      })
   } else {
     t.alert({
       message: '❌ Error: Enter amount tokens!',
