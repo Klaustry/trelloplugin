@@ -1,5 +1,33 @@
 //import { ethers } from 'ethers'
 
+document.getElementById('connectWallet') &&
+  document
+    .getElementById('connectWallet')
+    .addEventListener('click', function (event) {
+      addCard('dfgdfg', 'dfgdfg', 23423, 'dfgdfg')
+    })
+
+document.getElementById('addCard') &&
+  document
+    .getElementById('addCard')
+    .addEventListener('click', function (event) {
+      addCard('weer', 'dwer', 23423, 'derer')
+    })
+
+document.getElementById('addPerformer') &&
+  document
+    .getElementById('addPerformer')
+    .addEventListener('click', function (event) {
+      addPerformer()
+    })
+
+document.getElementById('getCard') &&
+  document
+    .getElementById('getCard')
+    .addEventListener('click', function (event) {
+      getCard()
+    })
+
 const contractAddress = '0x2C1b05D739aeCd2006c1a685BE3cAeeD1522895D'
 const abi = [
   {
