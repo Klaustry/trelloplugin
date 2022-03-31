@@ -1,5 +1,7 @@
 console.log('hello world!')
 
+import { getCard } from './contract.js'
+
 var WHITE_ICON =
   'https://everkit.org/everscale-branding-v1.0.0/badge/svg/everscale_badge_main_round.svg'
 var BLACK_ICON =
@@ -19,22 +21,27 @@ var onBtnClick = function (t, opts) {
 //   })
 // }
 
-const getCardRewardInfo = function (card) {
-  //if (card.idShort > 2 && card.idShort < 6)
-  return [
-    { title: 'Reward', text: `💳 ${card * 100} USDT` },
-    {
-      title: 'Status',
-      text: `🟢 Active`,
-    },
-    {
-      title: 'Action',
-      text: `Perform`,
-      callback: () => console.log('perform'),
-    },
-  ]
-  //else return []
-}
+const getCardRewardInfo = async (cardID) =>
+  getCard(cardID)
+    .then(() => {
+      return [
+        { title: 'Reward', text: `💳 ${cardID * 100} USDT` },
+        {
+          title: 'Status',
+          text: `🟢 Active`,
+        },
+        {
+          title: 'Action',
+          text: `Perform`,
+          callback: () => console.log('perform'),
+        },
+      ]
+    })
+    .catch(() => [])
+//if (card.idShort > 2 && card.idShort < 6)
+
+//else return []
+
 var btnCallback = function (t, opts) {
   return t.popup({
     title: 'Create reward offer',
