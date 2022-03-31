@@ -113,10 +113,9 @@ TrelloPowerUp.initialize({
           dark: WHITE_ICON,
           light: BLACK_ICON,
         },
-        text:
-          (await getSliceAddress()) != null
-            ? await getSliceAddress()
-            : 'Connect wallet',
+        text: ethereum.isConnected()
+          ? await getSliceAddress()
+          : 'Connect wallet',
         callback: () => connectWallet(),
         condition: 'edit',
       },
