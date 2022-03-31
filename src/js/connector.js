@@ -113,10 +113,11 @@ TrelloPowerUp.initialize({
   'board-buttons': async function (t, opts) {
     getSliceAddress()
       .then(function (e) {
+        console.log(e)
         return [
           {
             icon: ICON,
-            text: e.toString(),
+            text: 'ssssssssssss',
             callback: () => connectWallet(),
             condition: 'edit',
           },
@@ -125,7 +126,6 @@ TrelloPowerUp.initialize({
       .catch(function () {
         return [
           {
-            icon: ICON,
             text: 'Connect wallet',
             callback: () => connectWallet(),
             condition: 'edit',
