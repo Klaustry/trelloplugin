@@ -127,7 +127,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
 
-async function addCard() {
+export async function addCard() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.addCard('234', '234', 12, 'qwe')
@@ -141,7 +141,7 @@ async function addCard() {
   }
 }
 
-async function addPerformer() {
+export async function addPerformer() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.addPerformer('234', '234')
@@ -155,7 +155,7 @@ async function addPerformer() {
   }
 }
 
-async function getCard() {
+export async function getCard() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       const res = await contract.cardInfo('234')
