@@ -134,6 +134,7 @@ export async function addCard(cardID, creatorID, amount, token) {
     try {
       const res = await contract.addCard(cardID, creatorID, amount, token)
       console.log('response', res)
+      return await res
     } catch (error) {
       console.log(error)
     }

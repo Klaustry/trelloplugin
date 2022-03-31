@@ -16,18 +16,23 @@ document.getElementById('addRewardButton') &&
       t.closePopup()
     })
 
-const sendRewardParams = (blockcahin, amount, token) => {
+const sendRewardParams = async (blockcahin, amount, token) => {
   const context = t.getContext()
   console.log('sendContext', context.card, context.member, context.organization)
   console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log('amount', amount)
-    addCard(context.card, context.member, amount, token).then(() =>
-      t.alert({
-        message: '✔️ Great! You created an award!',
-        duration: 1,
-      }),
-    )
+    try {
+      const r = await addCard(context.card, context.member, amount, token)
+      consolelog(r)
+      //   t.alert({
+      //     message: '✔️ Great! You created an award!',
+      //     duration: 1,
+      //   }),
+      // )
+    } catch (e) {
+      console.log(e)
+    }
   } else {
     t.alert({
       message: '❌ Error: Enter amount tokens!',
