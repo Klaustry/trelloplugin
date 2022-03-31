@@ -168,3 +168,5 @@ export async function getCard() {
       'Please install MetaMask'
   }
 }
+
+getCard()
