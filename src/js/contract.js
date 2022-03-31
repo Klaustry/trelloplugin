@@ -28,6 +28,19 @@ document.getElementById('getCard') &&
       await getCard()
     })
 
+document.getElementById('addRewardButton') &&
+  document
+    .getElementById('addRewardButton')
+    .addEventListener('click', function (event) {
+      addCard(
+        'www',
+        'qqqqqqqqqqq',
+        parseInt(document.getElementById('idAmount').value),
+        document.getElementById('idSelectToken').value,
+      )
+      console.log('addReward Clicked!')
+    })
+
 const contractAddress = '0x2C1b05D739aeCd2006c1a685BE3cAeeD1522895D'
 const abi = [
   {
