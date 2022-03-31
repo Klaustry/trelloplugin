@@ -99,12 +99,7 @@ TrelloPowerUp.initialize({
     })
   },
   'board-buttons': async function (t, opts) {
-    if (t.isMemberSignedIn()) {
-      const jwt = await t.jwt({
-        state: JSON.stringify({ hello: 'world' }),
-      })
-      console.log(jwt)
-    }
+    console.log('TTTTTTTTTTTTT', t)
     return [
       {
         icon: {
