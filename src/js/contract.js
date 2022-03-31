@@ -42,7 +42,7 @@ document.getElementById('addRewardButton') &&
         document.getElementById('idSelectToken').value,
       )
         .then((e) => {
-          console.log(e)
+          trello.closePopup()
           trello.alert({
             message: `✔️ Great! You created an award!`,
             duration: 1,
@@ -54,7 +54,7 @@ document.getElementById('addRewardButton') &&
             duration: 1,
           }),
         )
-      //trello.closePopup()
+      //
       console.log('addReward Clicked!')
     })
 
