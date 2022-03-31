@@ -16,11 +16,11 @@ document.getElementById('addRewardButton') &&
       t.closePopup()
     })
 
-const sendRewardParams = (blockcahin, token, amount) => {
+const sendRewardParams = (blockcahin, amount, token) => {
   const context = t.getContext()
   console.log('sendContext', context.card, context.member, context.organization)
-  console.log('sendRewardParams', blockcahin, token, amount)
-  if (parseInt(amount) > 0) {
+  console.log('sendRewardParams', blockcahin, amount, token)
+  if (amount > 0) {
     console.log('amount', amount)
     t.alert({
       message: '✔️ Great! You created an award!',
