@@ -21,6 +21,10 @@ const sendRewardParams = (blockcahin, token, amount) => {
   console.log('sendContext', context.card, context.member, context.organization)
   console.log('sendRewardParams', blockcahin, token, amount)
   if (amount > 0 && context.card) {
+    t.alert({
+      message: '✔️ Great! You created an award!',
+      duration: 1,
+    })
   } else {
     t.alert({
       message: '❌ Error: Enter amount tokens!',
