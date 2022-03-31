@@ -110,8 +110,8 @@ TrelloPowerUp.initialize({
       return getCardRewardInfo(cardID)
     })
   },
-  'board-buttons': async function (t, opts) {
-    getSliceAddress()
+  'board-buttons': function (t, opts) {
+    return getSliceAddress()
       .then(function (e) {
         console.log(e)
         return [
