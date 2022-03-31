@@ -21,13 +21,13 @@ var onBtnClick = function (t, opts) {
 //   })
 // }
 
-const getCardRewardInfo = async (cardID) =>
-  getCard(cardID)
+const getCardRewardInfo = async function (cardID) {
+  return getCard(cardID)
     .then(function (e) {
       console.log('response', e)
       if (1) {
         return [
-          { title: 'Reward', text: `💳 ${cardID * 100} USDT` },
+          { title: 'Reward', text: `💳 ${cardID} USDT` },
           {
             title: 'Status',
             text: `🟢 Active`,
@@ -41,9 +41,8 @@ const getCardRewardInfo = async (cardID) =>
       } else return []
     })
     .catch(() => [])
-//if (card.idShort > 2 && card.idShort < 6)
-
-//else return []
+  //if (card.idShort > 2 && card.idShort < 6)
+}
 
 var btnCallback = function (t, opts) {
   return t.popup({
