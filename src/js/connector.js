@@ -40,10 +40,6 @@ var btnCallback = function (t, opts) {
   })
 }
 
-const sendRewardParams = (blockcahin, token, amount) => {
-  console.log('sendRewardParams', blockcahin, token, amount)
-}
-
 async function getSliceAddress() {
   const address = await getAccount()
   console.log('Client address', address)
