@@ -68,11 +68,13 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress() {
-  const address = await getAccount()[0]
-  console.log('Client address', address)
-  return getAccount()
-    ? address.slice(0, 5) + '...' + address.slice(-5, -1)
-    : false
+  if (getAccount()) {
+    const address = await getAccount()[0]
+    console.log('Client address', address)
+    return address.slice(0, 5) + '...' + address.slice(-5, -1)
+  } else {
+    return false
+  }
 }
 
 const getAccount = async () => {
@@ -113,7 +115,7 @@ TrelloPowerUp.initialize({
     return [
       {
         icon: ICON,
-        text: 'Connect wallet',
+        text: getSliceAddress() || 'Connect wallet',
         callback: () => connectWallet(),
         condition: 'edit',
       },
