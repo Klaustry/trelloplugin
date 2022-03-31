@@ -31,7 +31,7 @@ const getCardRewardInfo = async function (cardID) {
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
           {
             title: 'Status',
-            text: performerID === '' ? `🟢 Active` : `🔵 In work`,
+            text: e.performerID === '' ? `🟢 Active` : `🔵 In work`,
           },
         ]
       } else return []
