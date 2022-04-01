@@ -1,4 +1,4 @@
-//import { ethers } from 'ethers'
+import { ethers } from 'ethers'
 import abi from '../js/contract.abi.json'
 
 const contractAddress = '0x2C1b05D739aeCd2006c1a685BE3cAeeD1522895D'
