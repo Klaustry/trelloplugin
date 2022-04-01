@@ -7,6 +7,7 @@ var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 const getCardRewardInfo = function (cardID) {
   return getCard(cardID.id)
     .then(function (e) {
+      console.log('get card info', e)
       if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
@@ -30,7 +31,7 @@ const getRewardButton = async function (cardID) {
             callback: addPerformer,
           },
         ]
-        // } else if (e.exists) {
+        // } else if (e.exists && e.performerID>0) {
         //   return [
         //     {
         //       text: `❌ Сancel reward`,
