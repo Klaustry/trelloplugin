@@ -16,7 +16,7 @@ document.getElementById('addRewardButton') &&
 
 const sendRewardParams = async (blockcahin, amount, token) => {
   const context = t.getContext()
-  //console.log('sendContext', context.card, context.member, context.organization)
+  console.log('getContext', context)
   //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log('amount', amount)

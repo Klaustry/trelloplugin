@@ -5,6 +5,7 @@ const contractAddress = '0x2C1b05D739aeCd2006c1a685BE3cAeeD1522895D'
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress, abi, signer)
+const runLocalContract = new ethers.Contract(contractAddress, abi)
 
 export async function addCard(cardID, creatorID, amount, token) {
   const res = await contract.addCard(cardID, creatorID, amount, token)
@@ -19,5 +20,5 @@ export async function addPerformer(cardID, performerID) {
 }
 
 export async function getCard(cardID) {
-  return await contract.cardInfo(cardID)
+  return await runLocalContract.cardInfo(cardID)
 }
