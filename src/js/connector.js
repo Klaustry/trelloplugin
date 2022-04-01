@@ -70,7 +70,7 @@ async function getSliceAddress() {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const account = accounts[0]
     //getAccount()
-    return account.slice(0, 5) + '...' + account.slice(-5, -1)
+    return account.slice(0, 6) + '...' + account.slice(-6, -1)
   } else {
     return 'Connect wallet'
   }
@@ -112,12 +112,12 @@ TrelloPowerUp.initialize({
   },
   'board-buttons': function (t, opts) {
     return getSliceAddress()
-      .then(function (e) {
-        console.log(e)
+      .then(function (address) {
+        console.log(address)
         return [
           {
             //icon: ICON,
-            text: `💰 e.toString()`,
+            text: `💰 ${address}`,
             callback: () => connectWallet(),
             condition: 'edit',
           },
