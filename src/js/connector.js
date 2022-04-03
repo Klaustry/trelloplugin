@@ -3,6 +3,7 @@ console.log('hello world!')
 import { getCard } from './contract.js'
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
+var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
 
 const getCardRewardInfo = function (cardID) {
   return getCard(cardID.id)
@@ -41,6 +42,7 @@ const getRewardButton = async function (cardID) {
       } else {
         return [
           {
+            icon: EVER,
             text: `💳 Add reward`,
             callback: addReward,
           },
