@@ -31,13 +31,13 @@ const getRewardButton = async function (cardID) {
             callback: addPerformer,
           },
         ]
-        // } else if (e.exists && e.performerID>0) {
-        //   return [
-        //     {
-        //       text: `❌ Сancel reward`,
-        //       callback: () => {},
-        //     },
-        //   ]
+      } else if (e.exists && e.performerID != '') {
+        return [
+          {
+            text: `💸 Send reward`,
+            callback: () => {},
+          },
+        ]
       } else {
         return [
           {
