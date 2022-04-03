@@ -25,7 +25,8 @@ const getCardRewardInfo = function (cardID) {
 const getRewardButton = async function (cardID) {
   return await getCard(cardID.id)
     .then(function (e) {
-      console.log('exists', e.exists, e)
+      console.log('exists', e.exists)
+      console.log('po', e)
       if (e.exists && e.performerID === '') {
         return [
           {
