@@ -14,8 +14,7 @@ document.getElementById('cancelButton') &&
   document
     .getElementById('cancelButton')
     .addEventListener('click', function (event) {
-      t.getAll().then(function (data) {
-        console.log(data)
+        console.log(t.getAll())
       })
       // t.render(function () {
       //   t.card('all').then(function (e) {
