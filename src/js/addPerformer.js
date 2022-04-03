@@ -42,11 +42,9 @@ const sendRewardParams = async () => {
 
 const renderBoard = async () => {
   await t.render(function () {
-    t.card('all')
-      .get('all')
-      .then(function (attachment) {
-        console.log('render', attachment)
-      })
+    t.card('all').then(function (attachment) {
+      console.log('render', attachment)
+    })
     // .then(function(yellowstoneAttachments){
     //   var urls = yellowstoneAttachments.map(function(a){ return a.url; });
     //   document.getElementById('urls').textContent = urls.join(', ');
