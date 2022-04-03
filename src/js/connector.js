@@ -7,7 +7,6 @@ var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 const getCardRewardInfo = function (cardID) {
   return getCard(cardID.id)
     .then(function (e) {
-      //t.getAll().then((e) => console.log(e))
       console.log('get card info', e)
       if (e.exists) {
         return [
@@ -25,7 +24,6 @@ const getCardRewardInfo = function (cardID) {
 const getRewardButton = async function (cardID) {
   return await getCard(cardID.id)
     .then(function (e) {
-      console.log('exists', e.exists)
       if (e.exists && e.performerID === '') {
         return [
           {
@@ -102,48 +100,44 @@ async function connectWallet() {
 //   t.closePopup()
 // }
 
-TrelloPowerUp.initialize(function (t) {
-  console.log(t)
-  return {
-    'card-badges': function (t) {
-      //t.set('card', 'shared', 'key', 'value')
-      return t.card('id').then(function (cardID) {
-        return getCardRewardInfo(cardID)
+TrelloPowerUp.initialize({
+  'card-badges': function (t) {
+    return t.card('id').then(function (cardID) {
+      return getCardRewardInfo(cardID)
+    })
+  },
+  'card-detail-badges': function (t) {
+    return t.card('id').then(function (cardID) {
+      return getCardRewardInfo(cardID)
+    })
+  },
+  'board-buttons': function (t, opts) {
+    return getSliceAddress()
+      .then(function (address) {
+        console.log(address)
+        return [
+          {
+            //icon: ICON,
+            text: `💰 ${address}`,
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
       })
-    },
-    'card-detail-badges': function (t) {
-      return t.card('id').then(function (cardID) {
-        return getCardRewardInfo(cardID)
+      .catch(function () {
+        return [
+          {
+            text: 'Connect wallet',
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
       })
-    },
-    'board-buttons': function (t, opts) {
-      return getSliceAddress()
-        .then(function (address) {
-          console.log(address)
-          return [
-            {
-              //icon: ICON,
-              text: `💰 ${address}`,
-              callback: () => connectWallet(),
-              condition: 'edit',
-            },
-          ]
-        })
-        .catch(function () {
-          return [
-            {
-              text: 'Connect wallet',
-              callback: () => connectWallet(),
-              condition: 'edit',
-            },
-          ]
-        })
-    },
-    'card-buttons': function (t, opts) {
-      //console.log(t, opts)
-      return t.card('id').then(function (cardID) {
-        return getRewardButton(cardID)
-      })
-    },
-  }
+  },
+  'card-buttons': function (t, opts) {
+    //console.log(t, opts)
+    return t.card('id').then(function (cardID) {
+      return getRewardButton(cardID)
+    })
+  },
 })

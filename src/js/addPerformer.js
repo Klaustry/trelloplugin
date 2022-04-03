@@ -14,18 +14,6 @@ document.getElementById('cancelButton') &&
   document
     .getElementById('cancelButton')
     .addEventListener('click', function (event) {
-      // t.render(function () {
-      //   t.card('all').then(function (e) {
-      //     console.log('render', e)
-      //     //})
-      //     // .then(function(yellowstoneAttachments){
-      //     //   var urls = yellowstoneAttachments.map(function(a){ return a.url; });
-      //     //   document.getElementById('urls').textContent = urls.join(', ');
-      //     // })
-      //     // .then(function(){
-      //     //   return t.sizeTo('#content');
-      //   })
-      // })
       t.closePopup()
       console.log('Cancel Clicked!')
     })
