@@ -41,7 +41,7 @@ const sendRewardParams = async () => {
 }
 
 const renderBoard = async () => {
-  await t.render(function () {
+  await //t.render(function () {
     t.card('all').then(function (attachment) {
       console.log('render', attachment)
     })
