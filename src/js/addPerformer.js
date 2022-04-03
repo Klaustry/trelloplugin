@@ -14,6 +14,7 @@ document.getElementById('cancelButton') &&
   document
     .getElementById('cancelButton')
     .addEventListener('click', function (event) {
+      renderBoard()
       t.closePopup()
       console.log('Cancel Clicked!')
     })
@@ -38,3 +39,18 @@ const sendRewardParams = async () => {
       })
     })
 }
+
+const renderBoard = t.render(function () {
+  t.card('attachments')
+    .get('attachments')
+    .then(function (attachment) {
+      console.log('render', attachment)
+    })
+  // .then(function(yellowstoneAttachments){
+  //   var urls = yellowstoneAttachments.map(function(a){ return a.url; });
+  //   document.getElementById('urls').textContent = urls.join(', ');
+  // })
+  // .then(function(){
+  //   return t.sizeTo('#content');
+  // });
+})
