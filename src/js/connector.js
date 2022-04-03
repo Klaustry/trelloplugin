@@ -4,7 +4,7 @@ import { getCard } from './contract.js'
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 
-const getCardRewardInfo = function (cardID) {
+const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id)
     .then(function (e) {
       console.log(t.getContext())
@@ -105,7 +105,7 @@ TrelloPowerUp.initialize({
   'card-badges': function (t) {
     t.set('card', 'shared', 'key', 'value')
     return t.card('all').then(function (cardID) {
-      return getCardRewardInfo(cardID)
+      return getCardRewardInfo(t, cardID)
     })
   },
   'card-detail-badges': function (t) {
