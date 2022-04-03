@@ -100,10 +100,13 @@ async function connectWallet() {
 //   t.closePopup()
 // }
 
+t.set('card', 'shared', 'key', 'value')
+
+console.log(t.getAll())
+
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
     return t.card('all').then(function (cardID) {
-      t.set('card', 'shared', 'myKey', 'myValue')
       return getCardRewardInfo(cardID)
     })
   },
