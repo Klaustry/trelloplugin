@@ -7,6 +7,7 @@ var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 const getCardRewardInfo = function (cardID) {
   return getCard(cardID.id)
     .then(function (e) {
+      console.log(t.getContext())
       console.log('get card info', e)
       if (e.exists) {
         return [
@@ -103,7 +104,6 @@ async function connectWallet() {
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
     t.set('card', 'shared', 'key', 'value')
-    console.log(t.card('all'))
     return t.card('all').then(function (cardID) {
       return getCardRewardInfo(cardID)
     })
