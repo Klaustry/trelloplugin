@@ -7,7 +7,7 @@ var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id)
     .then(function (e) {
-      t.get('card', 'shared', 'myValue').then((e) => console.log(e))
+      t.getAll().then((e) => console.log(e))
       console.log('get card info', e)
       if (e.exists) {
         return [
