@@ -40,17 +40,19 @@ const sendRewardParams = async () => {
     })
 }
 
-const renderBoard = t.render(function () {
-  t.card('attachments')
-    .get('attachments')
-    .then(function (attachment) {
-      console.log('render', attachment)
-    })
-  // .then(function(yellowstoneAttachments){
-  //   var urls = yellowstoneAttachments.map(function(a){ return a.url; });
-  //   document.getElementById('urls').textContent = urls.join(', ');
-  // })
-  // .then(function(){
-  //   return t.sizeTo('#content');
-  // });
-})
+const renderBoard = async () => {
+  await t.render(function () {
+    t.card('attachments')
+      .get('attachments')
+      .then(function (attachment) {
+        console.log('render', attachment)
+      })
+    // .then(function(yellowstoneAttachments){
+    //   var urls = yellowstoneAttachments.map(function(a){ return a.url; });
+    //   document.getElementById('urls').textContent = urls.join(', ');
+    // })
+    // .then(function(){
+    //   return t.sizeTo('#content');
+    // });
+  })
+}
