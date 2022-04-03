@@ -11,7 +11,7 @@ const getCardRewardInfo = function (cardID) {
       console.log('get card info', e)
       if (e.exists) {
         return [
-          { title: 'Reward', icon: EVER, text: `💳 ${e.amount} ${e.token}` },
+          { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
           {
             title: 'Status',
             text: e.performerID === '' ? `🟢 Active` : `🔵 In work`,
