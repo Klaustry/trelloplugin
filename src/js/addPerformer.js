@@ -24,12 +24,12 @@ const sendRewardParams = async () => {
   addPerformer(context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
-      await t.set('card', 'shared', 'status', 2)
-      await t
-        .render(() => {})
-        .then(function () {
-          t.sizeTo('#content').done()
-        })
+      //await t.set('card', 'shared', 'status', 2)
+      // await t
+      //   .render()
+      //   .then(function () {
+      //     t.sizeTo('#content').done()
+      //   })
       await t.closePopup()
       await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
