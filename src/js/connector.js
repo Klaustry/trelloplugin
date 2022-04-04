@@ -16,7 +16,9 @@ const getCardRewardInfo = function (t, cardID) {
         t.set('card', 'shared', 'token', e.token)
       }
 
-      t.getAll().then((e) => console.log(e))
+      t.getAll()
+        .then((e) => console.log(e))
+        .catch(() => console.log('no data'))
       //console.log('get card info', e)
       if (e.exists) {
         return [
