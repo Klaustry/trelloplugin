@@ -72,7 +72,7 @@ async function getSliceAddress() {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const account = accounts[0]
     //getAccount()
-    return account.slice(0, 6) + '...' + account.slice(-6, -1)
+    return account.slice(0, 8) + '...' + account.slice(-8, -1)
   } else {
     return 'Connect wallet'
   }
