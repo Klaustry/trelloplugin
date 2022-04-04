@@ -27,6 +27,36 @@ const getStatus = function (id) {
   return status
 }
 
+const getActionButton = function (id) {
+  let action = []
+  switch (id) {
+    case 1:
+      action = [
+        {
+          text: `🤝 Take perform`,
+          callback: addPerformer,
+        },
+      ]
+      break
+    case 2:
+      action = [
+        {
+          text: `💸 Send reward`,
+          callback: () => {},
+        },
+      ]
+      break
+    default:
+      action = [
+        {
+          text: `💳 Add reward`,
+          callback: addReward,
+        },
+      ]
+  }
+  return action
+}
+
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id).then(function (e) {
     //t.remove('card', 'shared')
@@ -168,9 +198,9 @@ TrelloPowerUp.initialize({
       })
   },
   'card-buttons': function (t, opts) {
-    //console.log(t, opts)
-    return t.card('id').then(function (cardID) {
-      return getRewardButton(cardID)
-    })
+    return t
+      .get('card', 'shared')
+      .then((e) => getActionButton(e.status))
+      .catch(() => [])
   },
 })
