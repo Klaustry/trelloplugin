@@ -25,8 +25,24 @@ const sendRewardParams = async () => {
   addPerformer(context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
-      //await t.set('card', 'shared', 'status', 2)
-      await t.closePopup()
+      //t.card('id').then((cardID) =>
+      getCard(context.card).then(function (e) {
+        //t.remove('card', 'shared')
+        if (e.exists) {
+          t.set(
+            'card',
+            'shared',
+            'status',
+            e.exists && e.performerID === ''
+              ? 1
+              : e.exists && e.performerID != ''
+              ? 2
+              : 0,
+          )
+        }
+      }),
+        //)
+        await t.closePopup()
       await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
@@ -46,6 +62,6 @@ t.render(function () {
     t.get('card', 'shared', 'reward'),
     t.get('card', 'shared', 'status'),
   ]).then(function () {
-    t.sizeTo('#content').done()
+    //t.sizeTo('#content').done()
   })
 })
