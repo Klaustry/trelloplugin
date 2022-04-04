@@ -25,9 +25,7 @@ const sendRewardParams = async () => {
   await addPerformer(context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
-      await t
-        .set('card', 'shared', 'status', 2)
-        .then((e) => console.log('Success', e))
+      await setTimeout(t.set('card', 'shared', 'status', 2)),2000)
       await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
