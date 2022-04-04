@@ -8,15 +8,15 @@ var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id)
     .then(function (e) {
-      //t.remove('card', 'shared', ['performer', 'exist', 'mykey', 'amount'])
-      if (e.exists) {
-        t.set('card', 'shared', 'exist', e.exists)
-        t.set('card', 'shared', 'performer', e.performerID)
-        t.set('card', 'shared', 'amount', e.amount)
-        t.set('card', 'shared', 'token', e.token)
-      }
+      t.remove('card', 'shared', ['performer', 'exist', 'token', 'amount'])
+      // if (e.exists) {
+      //   t.set('card', 'shared', 'exist', e.exists)
+      //   t.set('card', 'shared', 'performer', e.performerID)
+      //   t.set('card', 'shared', 'amount', e.amount)
+      //   t.set('card', 'shared', 'token', e.token)
+      // }
 
-      t.get('card', 'shared', 'performer')
+      t.getAll()
         .then((e) => console.log(e))
         .catch(() => console.log('no data'))
       //console.log('get card info', e)
