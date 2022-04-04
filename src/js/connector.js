@@ -8,7 +8,7 @@ var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id)
     .then(function (e) {
-      t.remove('card', 'shared', ['performer', 'exist', 'token', 'amount'])
+      t.remove('card', 'shared', 'myKey')
       // if (e.exists) {
       //   t.set('card', 'shared', 'exist', e.exists)
       //   t.set('card', 'shared', 'performer', e.performerID)
