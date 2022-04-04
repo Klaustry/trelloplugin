@@ -5,9 +5,10 @@ import { getCard } from './contract.js'
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
 
-const getCardRewardInfo = function (cardID) {
+const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id)
     .then(function (e) {
+      console.log('ddd', t)
       //console.log('get card info', e)
       if (e.exists) {
         return [
@@ -96,12 +97,12 @@ async function connectWallet() {
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
     return t.card('id').then(function (cardID) {
-      return getCardRewardInfo(cardID)
+      return getCardRewardInfo(t, cardID)
     })
   },
   'card-detail-badges': function (t) {
     return t.card('id').then(function (cardID) {
-      return getCardRewardInfo(cardID)
+      return getCardRewardInfo(t, cardID)
     })
   },
   'board-buttons': function (t, opts) {
