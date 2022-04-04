@@ -68,22 +68,13 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress(t) {
-  console.log(t)
   if (ethereum.isConnected()) {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const account = accounts[0]
-    //getAccount()
     return account.slice(0, 8) + '...' + account.slice(-8, -1)
   } else {
-    return 'Connect wallet'
+    return false
   }
-}
-
-const getAccount = async () => {
-  // ethereum.isConnected()
-  //   ? await ethereum.request({ method: 'eth_requestAccounts' })
-  //   : false
-  console.log(await ethereum.request({ method: 'eth_accounts' }))
 }
 
 async function connectWallet() {
