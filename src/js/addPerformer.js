@@ -30,6 +30,7 @@ const sendRewardParams = async () => {
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
       })
+      await t.set('card', 'shared', 'status', 2)
       await t.closePopup()
     })
     .catch((e) => {
@@ -43,7 +44,10 @@ const sendRewardParams = async () => {
 }
 
 t.render(function () {
-  return Promise.all([t.get('card', 'shared', 'status')]).then(function () {
+  return Promise.all([
+    t.get('card', 'shared', 'reward'),
+    t.get('card', 'shared', 'status'),
+  ]).then(function () {
     //t.sizeTo('#content').done()
   })
 })
