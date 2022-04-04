@@ -1,4 +1,4 @@
-import { addPerformer } from './contract.js'
+import { addPerformer, getCard } from './contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 var Promise = TrelloPowerUp.Promise
