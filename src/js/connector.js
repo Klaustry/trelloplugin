@@ -1,11 +1,41 @@
 console.log('hello world!')
 
 import { getCard } from './contract.js'
-import { getStatus, getActionButton } from './utils/helpers.js'
+import { getStatus } from './utils/helpers.js'
 var Promise = TrelloPowerUp.Promise
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
+
+const getActionButton = function (id) {
+  let action = []
+  switch (id) {
+    case 1:
+      action = [
+        {
+          text: `🤝 Take perform`,
+          callback: addPerformer,
+        },
+      ]
+      break
+    case 2:
+      action = [
+        {
+          text: `💸 Send reward`,
+          callback: () => {},
+        },
+      ]
+      break
+    default:
+      action = [
+        {
+          text: `💳 Add reward`,
+          callback: addReward,
+        },
+      ]
+  }
+  return action
+}
 
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id).then(function (e) {
@@ -16,9 +46,18 @@ const getCardRewardInfo = function (t, cardID) {
         'card',
         'shared',
         'status',
-        e.exists && e.performerID === '' ? 1 : 2,
+        e.exists && e.performerID === ''
+          ? 1
+          : e.exists && e.performerID != ''
+          ? 2
+          : 0,
       )
     }
+
+    t.getAll()
+      .then((e) => console.log(e))
+      .catch(() => console.log('no data'))
+    //console.log('get card info', e)
     return t
       .get('card', 'shared')
       .then(function (e) {
@@ -32,6 +71,22 @@ const getCardRewardInfo = function (t, cardID) {
         ]
       })
       .catch(() => [])
+  })
+}
+
+var addReward = function (t) {
+  return t.popup({
+    title: 'Create reward offer',
+    url: './addReward.html',
+    height: 210,
+  })
+}
+
+var addPerformer = function (t) {
+  return t.popup({
+    title: 'take for execution',
+    url: './addPerformer.html',
+    height: 100,
   })
 }
 
@@ -87,7 +142,7 @@ TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
     return t
       .get('card', 'shared')
-      .then((e) => getActionButton(e.status, t))
+      .then((e) => getActionButton(e.status))
       .catch(() => [])
   },
 })
