@@ -25,10 +25,8 @@ const sendRewardParams = async () => {
   addPerformer(context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
-      //t.card('id').then((cardID) =>
       getCard(context.card).then(function (e) {
-        //t.remove('card', 'shared')
-        if (e.exists) {
+        t.remove('card', 'shared', 'status').then(() =>
           t.set(
             'card',
             'shared',
@@ -38,8 +36,8 @@ const sendRewardParams = async () => {
               : e.exists && e.performerID != ''
               ? 2
               : 0,
-          )
-        }
+          ),
+        )
       }),
         //)
         await t.closePopup()
