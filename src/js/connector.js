@@ -67,7 +67,7 @@ var addPerformer = function (t) {
   })
 }
 
-async function getSliceAddress() {
+async function getSliceAddress(t) {
   console.log(t)
   if (ethereum.isConnected()) {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
