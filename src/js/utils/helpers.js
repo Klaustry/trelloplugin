@@ -19,14 +19,14 @@ export const getStatus = function (id) {
   return status
 }
 
-export const getActionButton = function (id) {
+export const getActionButton = function (id, t) {
   let action = []
   switch (id) {
     case 1:
       action = [
         {
           text: `🤝 Take perform`,
-          callback: addPerformer,
+          callback: addPerformer(t),
         },
       ]
       break
@@ -42,9 +42,25 @@ export const getActionButton = function (id) {
       action = [
         {
           text: `💳 Add reward`,
-          callback: addReward,
+          callback: addReward(t),
         },
       ]
   }
   return action
+}
+
+var addReward = function (t) {
+  return t.popup({
+    title: 'Create reward offer',
+    url: './addReward.html',
+    height: 210,
+  })
+}
+
+var addPerformer = function (t) {
+  return t.popup({
+    title: 'take for execution',
+    url: './addPerformer.html',
+    height: 100,
+  })
 }

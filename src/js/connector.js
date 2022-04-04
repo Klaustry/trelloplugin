@@ -35,22 +35,6 @@ const getCardRewardInfo = function (t, cardID) {
   })
 }
 
-var addReward = function (t) {
-  return t.popup({
-    title: 'Create reward offer',
-    url: './addReward.html',
-    height: 210,
-  })
-}
-
-var addPerformer = function (t) {
-  return t.popup({
-    title: 'take for execution',
-    url: './addPerformer.html',
-    height: 100,
-  })
-}
-
 async function getSliceAddress(t) {
   if (ethereum.isConnected()) {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
@@ -103,7 +87,7 @@ TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
     return t
       .get('card', 'shared')
-      .then((e) => getActionButton(e.status))
+      .then((e) => getActionButton(e.status, t))
       .catch(() => [])
   },
 })
