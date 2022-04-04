@@ -6,6 +6,27 @@ var Promise = TrelloPowerUp.Promise
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
 
+const getStatus = function (id) {
+  let status = {}
+  switch (id) {
+    case 1:
+      status = { id: id, name: `🟢 Active` }
+      break
+    case 2:
+      status = { id: id, name: `🔵 In work` }
+      break
+    case 3:
+      status = { id: id, name: `⚪ Сompleted` }
+      break
+    case 3:
+      status = { id: id, name: `🔴 Dispute` }
+      break
+    default:
+      status = {}
+  }
+  return status
+}
+
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id).then(function (e) {
     //t.remove('card', 'shared')
@@ -33,7 +54,7 @@ const getCardRewardInfo = function (t, cardID) {
           { title: 'Reward', text: e.reward },
           {
             title: 'Status',
-            text: e.status === 1 ? `🟢 Active` : `🔵 In work`,
+            text: getStatus(e.status).name,
           },
         ]
       })
