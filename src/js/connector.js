@@ -1,6 +1,7 @@
 console.log('hello world!')
 
 import { getCard } from './contract.js'
+var Promise = TrelloPowerUp.Promise
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
@@ -30,6 +31,7 @@ const getCardRewardInfo = function (t, cardID) {
         .then((e) => console.log(e))
         .catch(() => console.log('no data'))
       //console.log('get card info', e)
+      return t.get('card', 'shared').then((e) => console.log('eeee', e))
       if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
