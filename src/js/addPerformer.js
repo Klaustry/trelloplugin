@@ -22,25 +22,24 @@ document.getElementById('cancelButton') &&
 const sendRewardParams = async () => {
   const context = t.getContext()
   //console.log('Context', context.card, context.member, context.organization)
-  addPerformer(context.card, context.member)
+  await addPerformer(context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
-      getCard(context.card).then(function (e) {
-        t.remove('card', 'shared', 'status').then(() =>
-          t.set(
-            'card',
-            'shared',
-            'status',
-            e.exists && e.performerID === ''
-              ? 1
-              : e.exists && e.performerID != ''
-              ? 2
-              : 0,
-          ),
+      getCard(context.card).then(function (l) {
+        console.log('Success', l)
+        t.set(
+          'card',
+          'shared',
+          'status',
+          l.exists && l.performerID === ''
+            ? 1
+            : l.exists && l.performerID != ''
+            ? 2
+            : 0,
         )
-      }),
-        //)
-        await t.closePopup()
+      })
+      //)
+      await t.closePopup()
       await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,

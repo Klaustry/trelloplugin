@@ -26,11 +26,11 @@ const sendRewardParams = async (blockcahin, amount, token) => {
         console.log('Success', e)
         await t.set('card', 'shared', 'reward', `💳 ${amount} ${token}`)
         await t.set('card', 'shared', 'status', 1)
-        await t.closePopup()
         await t.alert({
           message: '✔️ Great! You created an award!',
           duration: 1,
         })
+        await t.closePopup()
       })
       .catch((e) => {
         t.closePopup()
