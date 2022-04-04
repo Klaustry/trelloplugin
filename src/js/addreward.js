@@ -1,6 +1,7 @@
 import { addCard } from './contract.js'
 
 var t = window.TrelloPowerUp.iframe()
+var Promise = TrelloPowerUp.Promise
 
 document.getElementById('addRewardButton') &&
   document
@@ -21,10 +22,12 @@ const sendRewardParams = async (blockcahin, amount, token) => {
   if (amount > 0) {
     console.log('amount', amount)
     addCard(context.card, context.member, amount, token)
-      .then((e) => {
+      .then(async (e) => {
         console.log('Success', e)
-        t.closePopup()
-        t.alert({
+        await t.set('card', 'shared', 'reward', `💳 ${amount} ${token}`)
+        await t.set('card', 'shared', 'status', 1)
+        await t.closePopup()
+        await t.alert({
           message: '✔️ Great! You created an award!',
           duration: 1,
         })
@@ -44,3 +47,12 @@ const sendRewardParams = async (blockcahin, amount, token) => {
     })
   }
 }
+
+t.render(function () {
+  return Promise.all([
+    t.get('card', 'shared', 'reward'),
+    t.get('card', 'shared', 'status'),
+  ]).then(function () {
+    t.sizeTo('#content').done()
+  })
+})
