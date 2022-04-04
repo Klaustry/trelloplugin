@@ -22,10 +22,11 @@ const sendRewardParams = async () => {
   const context = t.getContext()
   //console.log('Context', context.card, context.member, context.organization)
   addPerformer(context.card, context.member)
-    .then((e) => {
+    .then(async (e) => {
       console.log('Success', e)
-      t.closePopup()
-      t.alert({
+      await t.set('card', 'shared', 'status', 2)
+      await t.closePopup()
+      await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
       })
@@ -38,3 +39,9 @@ const sendRewardParams = async () => {
       })
     })
 }
+
+t.render(function () {
+  return new Promise([t.get('card', 'shared', 'status')]).then(function () {
+    t.sizeTo('#content').done()
+  })
+})
