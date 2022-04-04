@@ -1,61 +1,11 @@
 console.log('hello world!')
 
 import { getCard } from './contract.js'
+import { getStatus, getActionButton } from './utils/helpers.js'
 var Promise = TrelloPowerUp.Promise
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
 var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
-
-const getStatus = function (id) {
-  let status = {}
-  switch (id) {
-    case 1:
-      status = { id: id, name: `🟢 Active` }
-      break
-    case 2:
-      status = { id: id, name: `🔵 In work` }
-      break
-    case 3:
-      status = { id: id, name: `⚪ Сompleted` }
-      break
-    case 3:
-      status = { id: id, name: `🔴 Dispute` }
-      break
-    default:
-      status = {}
-  }
-  return status
-}
-
-const getActionButton = function (id) {
-  let action = []
-  switch (id) {
-    case 1:
-      action = [
-        {
-          text: `🤝 Take perform`,
-          callback: addPerformer,
-        },
-      ]
-      break
-    case 2:
-      action = [
-        {
-          text: `💸 Send reward`,
-          callback: () => {},
-        },
-      ]
-      break
-    default:
-      action = [
-        {
-          text: `💳 Add reward`,
-          callback: addReward,
-        },
-      ]
-  }
-  return action
-}
 
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id).then(function (e) {
@@ -68,14 +18,7 @@ const getCardRewardInfo = function (t, cardID) {
         'status',
         e.exists && e.performerID === '' ? 1 : 2,
       )
-      //   t.set('card', 'shared', 'amount', e.amount)
-      //   t.set('card', 'shared', 'token', e.token)
     }
-
-    t.getAll()
-      .then((e) => console.log(e))
-      .catch(() => console.log('no data'))
-    //console.log('get card info', e)
     return t
       .get('card', 'shared')
       .then(function (e) {
@@ -90,35 +33,6 @@ const getCardRewardInfo = function (t, cardID) {
       })
       .catch(() => [])
   })
-}
-
-const getRewardButton = async function (cardID) {
-  return await getCard(cardID.id)
-    .then(function (e) {
-      if (e.exists && e.performerID === '') {
-        return [
-          {
-            text: `🤝 Take perform`,
-            callback: addPerformer,
-          },
-        ]
-      } else if (e.exists && e.performerID != '') {
-        return [
-          {
-            text: `💸 Send reward`,
-            callback: () => {},
-          },
-        ]
-      } else {
-        return [
-          {
-            text: `💳 Add reward`,
-            callback: addReward,
-          },
-        ]
-      }
-    })
-    .catch(() => [])
 }
 
 var addReward = function (t) {
@@ -151,17 +65,6 @@ async function connectWallet() {
   await ethereum.request({ method: 'eth_requestAccounts' })
   console.log('MetaMask connected')
 }
-
-// async function disconnectWallet() {
-//   console.log('MetaMask discconnected')
-// }
-
-//console.log('window', document.getElementById('addRewardButton'))
-
-// var createRewardClick = function (t, opts) {
-//   console.log('createRewardClick clicked!')
-//   t.closePopup()
-// }
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
