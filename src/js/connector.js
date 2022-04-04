@@ -14,7 +14,7 @@ const getCardRewardInfo = function (t, cardID) {
         amount: e.amount,
         token: e.token,
       })
-      t.get('card', 'shared', 'exist').then((e) => console.log(e))
+      t.getAll().then((e) => console.log(e))
       //console.log('get card info', e)
       if (e.exists) {
         return [
