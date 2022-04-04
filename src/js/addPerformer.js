@@ -1,6 +1,7 @@
 import { addPerformer } from './contract.js'
 
 var t = window.TrelloPowerUp.iframe()
+var Promise = TrelloPowerUp.Promise
 
 document.getElementById('addPerformButton') &&
   document
@@ -25,7 +26,6 @@ const sendRewardParams = async () => {
     .then(async (e) => {
       console.log('Success', e)
       //await t.set('card', 'shared', 'status', 2)
-      await t.render()
       await t.closePopup()
       await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
@@ -40,3 +40,12 @@ const sendRewardParams = async () => {
       })
     })
 }
+
+t.render(function () {
+  return Promise.all([
+    t.get('card', 'shared', 'reward'),
+    t.get('card', 'shared', 'status'),
+  ]).then(function () {
+    t.sizeTo('#content').done()
+  })
+})
