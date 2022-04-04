@@ -53,6 +53,6 @@ t.render(function () {
     t.get('card', 'shared', 'reward'),
     t.get('card', 'shared', 'status'),
   ]).then(function () {
-    t.sizeTo('#content').done()
+    //t.sizeTo('#content').done()
   })
 })

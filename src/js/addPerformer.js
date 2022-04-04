@@ -56,10 +56,7 @@ const sendRewardParams = async () => {
 }
 
 t.render(function () {
-  return Promise.all([
-    t.get('card', 'shared', 'reward'),
-    t.get('card', 'shared', 'status'),
-  ]).then(function () {
+  return Promise.all([t.get('card', 'shared', 'status')]).then(function () {
     //t.sizeTo('#content').done()
   })
 })
