@@ -8,7 +8,7 @@ var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
 const getCardRewardInfo = function (cardID) {
   return getCard(cardID.id)
     .then(function (e) {
-      console.log('get card info', e)
+      //console.log('get card info', e)
       if (e.exists) {
         return [
           { title: 'Reward', text: `💳 ${e.amount} ${e.token}` },
@@ -68,6 +68,7 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress() {
+  console.log(t)
   if (ethereum.isConnected()) {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const account = accounts[0]
@@ -113,7 +114,7 @@ TrelloPowerUp.initialize({
     })
   },
   'board-buttons': function (t, opts) {
-    return getSliceAddress()
+    return getSliceAddress(t)
       .then(function (address) {
         console.log(address)
         return [
