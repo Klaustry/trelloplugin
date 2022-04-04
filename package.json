@@ -7,7 +7,6 @@
   "author": "Oliver65535 <oo-tarasov@ya.ru>",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel src/html/index.html",
     "build": "parcel build src/html/*.html"
   },
   "devDependencies": {
