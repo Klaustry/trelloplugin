@@ -13,7 +13,7 @@ const getActionButton = function (id) {
     case 1:
       action = [
         {
-          text: `🤝 Take perform`,
+          text: `✔️ Join task`,
           callback: addPerformer,
         },
       ]
@@ -21,7 +21,7 @@ const getActionButton = function (id) {
     case 2:
       action = [
         {
-          text: `💸 Send reward`,
+          text: `💎 Send reward`,
           callback: () => {},
         },
       ]
