@@ -22,7 +22,7 @@ const getActionButton = function (id) {
       action = [
         {
           text: `💎 Send reward`,
-          callback: () => {},
+          callback: () => sendReward,
         },
       ]
       break
@@ -93,7 +93,7 @@ var addPerformer = function (t) {
   })
 }
 
-var addPerformer = function (t) {
+var sendReward = function (t) {
   return t.popup({
     title: 'Send reward',
     url: './sendReward.html',
