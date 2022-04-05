@@ -40,23 +40,23 @@ const getActionButton = function (id) {
 const getCardRewardInfo = function (t, cardID) {
   return getCard(cardID.id).then(function (e) {
     //t.remove('card', 'shared')
-    if (e.exists) {
-      t.set('card', 'shared', 'reward', e.exists && `💳 ${e.amount} ${e.token}`)
-      t.set(
-        'card',
-        'shared',
-        'status',
-        e.exists && e.performerID === ''
-          ? 1
-          : e.exists && e.performerID != ''
-          ? 2
-          : 0,
-      )
-    }
+    // if (e.exists) {
+    //   t.set('card', 'shared', 'reward', e.exists && `💳 ${e.amount} ${e.token}`)
+    //   t.set(
+    //     'card',
+    //     'shared',
+    //     'status',
+    //     e.exists && e.performerID === ''
+    //       ? 1
+    //       : e.exists && e.performerID != ''
+    //       ? 2
+    //       : 0,
+    //   )
+    // }
 
-    t.getAll()
-      .then((e) => console.log(e))
-      .catch(() => console.log('no data'))
+    // t.getAll()
+    //   .then((e) => console.log(e))
+    //   .catch(() => console.log('no data'))
     //console.log('get card info', e)
     return t
       .get('card', 'shared')
