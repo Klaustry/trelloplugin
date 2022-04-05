@@ -37,8 +37,8 @@ const getActionButton = function (id) {
   return action
 }
 
-const getCardRewardInfo = function (t, cardID) {
-  return getCard(cardID.id).then(function (e) {
+const getCardRewardInfo = function (t, card) {
+  return getCard(card.id).then(function (e) {
     //t.remove('card', 'shared')
     // if (e.exists) {
     //   t.set('card', 'shared', 'reward', e.exists && `💳 ${e.amount} ${e.token}`)
@@ -91,7 +91,7 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress(t) {
-  t.board('all').then((e) => {
+  t.getContext.then((e) => {
     console.log(e)
   })
   if (ethereum.isConnected()) {
@@ -110,16 +110,16 @@ async function connectWallet() {
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
-    return t.card('id').then(function (cardID) {
-      return getCardRewardInfo(t, cardID)
+    return t.card('id').then(function (card) {
+      return getCardRewardInfo(t, card)
     })
   },
   'card-detail-badges': function (t) {
-    return t.card('id').then(function (cardID) {
-      return getCardRewardInfo(t, cardID)
+    return t.card('id').then(function (card) {
+      return getCardRewardInfo(t, card)
     })
   },
-  'board-buttons': function (t, opts) {
+  'board-buttons': function (t) {
     return getSliceAddress(t)
       .then(function (address) {
         console.log(address)
@@ -142,7 +142,7 @@ TrelloPowerUp.initialize({
         ]
       })
   },
-  'card-buttons': function (t, opts) {
+  'card-buttons': function (t) {
     return t
       .get('card', 'shared')
       .then((e) => getActionButton(e.status))
