@@ -8,9 +8,9 @@ export const getStatus = function (id) {
       status = { id: id, name: `🔵 In work` }
       break
     case 3:
-      status = { id: id, name: `⚪ Сompleted` }
+      status = { id: id, name: `⚪ Paid` }
       break
-    case 3:
+    case 4:
       status = { id: id, name: `🔴 Dispute` }
       break
     default:

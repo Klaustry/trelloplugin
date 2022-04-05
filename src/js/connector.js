@@ -26,6 +26,9 @@ const getActionButton = function (id) {
         },
       ]
       break
+    case 3:
+      action = []
+      break
     default:
       action = [
         {
@@ -86,6 +89,14 @@ var addPerformer = function (t) {
   return t.popup({
     title: 'take for execution',
     url: './addPerformer.html',
+    height: 100,
+  })
+}
+
+var addPerformer = function (t) {
+  return t.popup({
+    title: 'Send reward',
+    url: './sendReward.html',
     height: 100,
   })
 }
