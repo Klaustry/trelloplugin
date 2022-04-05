@@ -91,6 +91,9 @@ var addPerformer = function (t) {
 }
 
 async function getSliceAddress(t) {
+  t.board('all').then((e) => {
+    console.log(e)
+  })
   if (ethereum.isConnected()) {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const account = accounts[0]
