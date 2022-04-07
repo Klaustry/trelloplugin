@@ -21,7 +21,7 @@ const getActionButton = function (id) {
     case 2:
       action = [
         {
-          text: `💎 Reward sent`,
+          text: `💎 Send reward`,
           callback: sendReward,
         },
       ]
@@ -95,7 +95,7 @@ var addPerformer = function (t) {
 
 var sendReward = function (t) {
   return t.popup({
-    title: 'Reward sent',
+    title: 'Send reward',
     url: './sendreward.html',
     height: 100,
   })

@@ -21,7 +21,7 @@ document.getElementById('cancelButton') &&
 
 const sendRewardParams = async () => {
   await t.alert({
-    message: '✔️ Сongratulations! Reward sended!',
+    message: '✔️ Сongratulations! Reward sent!',
     duration: 1,
   })
   await t.set('card', 'shared', 'status', 3)
