@@ -87,7 +87,7 @@ var addReward = function (t) {
 
 var addPerformer = function (t) {
   return t.popup({
-    title: 'take for execution',
+    title: 'Take for execution',
     url: './addPerformer.html',
     height: 100,
   })
@@ -95,7 +95,7 @@ var addPerformer = function (t) {
 
 var sendReward = function (t) {
   return t.popup({
-    title: 'Send reward',
+    title: 'Reward sent',
     url: './sendreward.html',
     height: 100,
   })
