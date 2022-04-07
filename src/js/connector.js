@@ -5,7 +5,7 @@ import { getStatus } from './utils/helpers.js'
 var Promise = TrelloPowerUp.Promise
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
-var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/6535.png'
+var EVER = 'https://cryptologos.cc/logos/near-protocol-near-logo.svg?v=022'
 
 const getActionButton = function (id) {
   let action = []
@@ -42,7 +42,7 @@ const getActionButton = function (id) {
 
 const getCardRewardInfo = function (t, card) {
   return getCard(card.id).then(function (e) {
-    //t.remove('card', 'shared')
+    t.remove('card', 'shared', ['reward', 'status'])
     // if (e.exists) {
     //   t.set('card', 'shared', 'reward', e.exists && `💳 ${e.amount} ${e.token}`)
     //   t.set(
@@ -103,8 +103,10 @@ var sendReward = function (t) {
 
 async function getSliceAddress(t) {
   if (ethereum.isConnected()) {
-    const accounts = await ethereum.request({ method: 'eth_accounts' })
-    const account = accounts[0]
+    // const accounts = await ethereum.request({ method: 'eth_accounts' })
+    // const account = accounts[0]
+    const account =
+      '56e872e06a354bfc7104eccbf4234af44f13ba97cacbe644e6068ab145f42849'
     return account.slice(0, 8) + '...' + account.slice(-8, -1)
   } else {
     return false
