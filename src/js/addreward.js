@@ -15,7 +15,7 @@ document.getElementById('addRewardButton') &&
       //console.log('addReward Clicked!')
     })
 
-const sendRewardParams = async (blockcahin, amount, token) => {
+const sendRewardParams = async (amount, token) => {
   const context = t.getContext()
   console.log(t.getContext())
   //console.log('sendRewardParams', blockcahin, amount, token)
