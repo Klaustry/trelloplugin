@@ -40,6 +40,11 @@ select {
   background-color: #fafbfc;
   border-radius: 3px;
   border: 2px solid #dfe1e6;
+  text-align: end;
+}
+
+input {
+  text-align: end;
 }
 
 .button-success {
