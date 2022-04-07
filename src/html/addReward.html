@@ -15,29 +15,29 @@
   </head>
   <body>
     <div class="form-rwd">
-      <div class="label">
+      <!-- <div class="label">
         <label for="idSelectBlockChain">Select blockhain</label>
         <select id="idSelectBlockChain">
           <option value="BTC" selected>BTC metamask</option>
           <option value="EVER">EVER Everscale</option>
         </select>
+      </div> -->
+      <!-- <div class="amount-group"> -->
+      <div class="label select-token">
+        <label for="idSelectToken">Token</label>
+        <select id="idSelectToken">
+          <option value="USDT" selected>1000 USDT</option>
+          <option value="WEVER">5200 WEVER</option>
+          <option value="DAI">100248 DAI</option>
+        </select>
       </div>
-      <div class="amount-group">
-        <div class="label">
-          <label for="idAmount">Amount</label>
-          <input class="input" id="idAmount" type="number" placeholder="0" />
-        </div>
-        <div class="label select-token">
-          <label for="idSelectToken">Token</label>
-          <select id="idSelectToken">
-            <option value="USDT" selected>USDT</option>
-            <option value="WEVER">WEVER</option>
-            <option value="DAI">DAI</option>
-          </select>
-        </div>
+      <div class="label">
+        <label for="idAmount">Amount</label>
+        <input class="input" id="idAmount" type="number" placeholder="0" />
       </div>
+      <!-- </div> -->
       <div class="radio-option">
-        <button class="button-success" id="addRewardButton">Create</button>
+        <button class="button-success" id="addRewardButton">Submit</button>
       </div>
     </div>
     <!-- <script src="https://p.trellocdn.com/power-up.min.js"></script> -->
