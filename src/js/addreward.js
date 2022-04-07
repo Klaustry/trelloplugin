@@ -8,7 +8,7 @@ document.getElementById('addRewardButton') &&
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
       sendRewardParams(
-        document.getElementById('idSelectBlockChain').value,
+        //document.getElementById('idSelectBlockChain').value,
         document.getElementById('idAmount').value,
         document.getElementById('idSelectToken').value,
       )
