@@ -81,7 +81,7 @@ var addReward = function (t) {
   return t.popup({
     title: 'Create reward offer',
     url: './addReward.html',
-    height: 100,
+    height: 150,
   })
 }
 
