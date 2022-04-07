@@ -5,7 +5,7 @@ import { getStatus } from './utils/helpers.js'
 var Promise = TrelloPowerUp.Promise
 
 var ICON = 'https://cdn.cdnlogo.com/logos/m/79/metamask.svg'
-var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/7505.png'
+var EVER = 'https://s2.coinmarketcap.com/static/img/coins/64x64/6535.png'
 
 const getActionButton = function (id) {
   let action = []
@@ -21,7 +21,7 @@ const getActionButton = function (id) {
     case 2:
       action = [
         {
-          text: `💎 Send reward`,
+          text: `💎 Reward sent`,
           callback: sendReward,
         },
       ]
@@ -133,8 +133,8 @@ TrelloPowerUp.initialize({
         console.log(address)
         return [
           {
-            //icon: ICON,
-            text: `💰 ${address}`,
+            icon: EVER,
+            text: `${address}`,
             callback: () => connectWallet(),
             condition: 'edit',
           },

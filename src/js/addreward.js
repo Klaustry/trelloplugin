@@ -24,7 +24,7 @@ const sendRewardParams = async (blockcahin, amount, token) => {
     addCard(context.card, context.member, amount, token)
       .then(async (e) => {
         console.log('Success', e)
-        await t.set('card', 'shared', 'reward', `💳 ${amount} ${token}`)
+        await t.set('card', 'shared', 'reward', `💰 ${amount} ${token}`)
         await t.set('card', 'shared', 'status', 1)
         await t.alert({
           message: '✔️ Great! You created an award!',
