@@ -19,13 +19,12 @@ document.getElementById('addRewardButton') &&
 document.addEventListener('DOMContentLoaded', function () {
   var s = document.getElementById('idSelectToken')
   tokens.forEach(async function (element, key) {
-    getTokenBalance(element.contractAddress).then((e) =>
-      console.log(e)(
+    getTokenBalance(element.contractAddress).then(
+      (e) =>
         (s[key] = new Option(
           `${e / 10 ** element.decimals} ${element.symbol}`,
           key,
         )),
-      ),
     )
   })
 })
