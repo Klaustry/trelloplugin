@@ -77,7 +77,7 @@ async function connect() {
 export async function getTokenBalance(rootTokenAddr) {
   try {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
-    console.log(accounts[0])
+    console.log(rootTokenAddr)
     const res = await rootTokenContract(rootTokenAddr).balanceOf(accounts[0])
     console.log('response', res)
     return await res
