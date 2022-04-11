@@ -1,13 +1,16 @@
 [
   {
     "inputs": [],
-    "payable": false,
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
   {
-    "constant": false,
     "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
       {
         "internalType": "string",
         "name": "_cardID",
@@ -24,23 +27,26 @@
         "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "address",
         "name": "_token",
-        "type": "string"
+        "type": "address"
       }
     ],
     "name": "addCard",
     "outputs": [],
-    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": false,
     "inputs": [
       {
         "internalType": "string",
         "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_boardID",
         "type": "string"
       },
       {
@@ -51,13 +57,16 @@
     ],
     "name": "addPerformer",
     "outputs": [],
-    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
       {
         "internalType": "string",
         "name": "",
@@ -77,6 +86,16 @@
         "type": "string"
       },
       {
+        "internalType": "string",
+        "name": "boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "cardID",
+        "type": "string"
+      },
+      {
         "internalType": "address",
         "name": "creatorAddr",
         "type": "address"
@@ -87,8 +106,13 @@
         "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "address",
         "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "symbol",
         "type": "string"
       },
       {
@@ -102,12 +126,183 @@
         "type": "address"
       }
     ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": true,
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "cards",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "curIndex",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "decreaseReward",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      }
+    ],
+    "name": "existCard",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      }
+    ],
+    "name": "finishCard",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      }
+    ],
+    "name": "getCard",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "exists",
+            "type": "bool"
+          },
+          {
+            "internalType": "string",
+            "name": "creatorID",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "boardID",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "cardID",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "creatorAddr",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "performerID",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "performerAddr",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct TrelloStorage.trelloInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "getOwner",
     "outputs": [
@@ -117,8 +312,30 @@
         "type": "address"
       }
     ],
-    "payable": false,
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "increaseReward",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]
