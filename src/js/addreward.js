@@ -1,4 +1,5 @@
 import { addCard, getTokenBalance } from './contract.js'
+import { tokens } from '../constants'
 
 var t = window.TrelloPowerUp.iframe()
 var Promise = TrelloPowerUp.Promise
