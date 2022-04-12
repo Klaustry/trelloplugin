@@ -47,7 +47,7 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
       tokens[tokenIndex].symbol,
     )
     console.log('response', res)
-    return await res
+    //return await res
   } catch (e) {
     console.error(e)
   }
