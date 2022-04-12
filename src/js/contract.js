@@ -45,7 +45,7 @@ export async function addCard(params) {
       params.board,
       params.card,
       params.member,
-      params.amount,
+      Number(params.amount * 10 ** 18),
       params.address,
     )
     console.log('response', res)
