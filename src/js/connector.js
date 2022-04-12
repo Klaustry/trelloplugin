@@ -42,20 +42,20 @@ const getActionButton = function (id) {
 
 const getCardRewardInfo = function (t, card) {
   return getCard(card.board, card.id).then(function (e) {
-    t.remove('card', 'shared', ['reward', 'status'])
-    // if (e.exists) {
-    //   t.set('card', 'shared', 'reward', e.exists && `💰 ${e.amount} ${e.token}`)
-    //   t.set(
-    //     'card',
-    //     'shared',
-    //     'status',
-    //     e.exists && e.performerID === ''
-    //       ? 1
-    //       : e.exists && e.performerID != ''
-    //       ? 2
-    //       : 0,
-    //   )
-    // }
+    //t.remove('card', 'shared', ['reward', 'status'])
+    if (e.exists) {
+      t.set('card', 'shared', 'reward', e.exists && `💰 ${e.amount} ${e.token}`)
+      t.set(
+        'card',
+        'shared',
+        'status',
+        e.exists && e.performerID === ''
+          ? 1
+          : e.exists && e.performerID != ''
+          ? 2
+          : 0,
+      )
+    }
 
     // t.getAll()
     //   .then((e) => console.log(e))
