@@ -27,7 +27,7 @@ const sendRewardParams = async () => {
     .then(async (e) => {
       if (e.indexOf('execution reverted:') >= 0) {
         const regs = e.match(/\d+/)
-        console.log('getError=', getError(regs[0]))
+        console.log('getError=', regs, getError(Number(regs[0])))
         t.alert({
           message: `❌ Error: ${e}!`,
           duration: 2,
