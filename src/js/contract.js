@@ -1,4 +1,4 @@
-//import { ethers } from 'ethers'
+import { ethers, BigNumber } from 'ethers'
 import trelloAbi from '../js/abi/trelloContract.abi.json'
 import rootTokenAbi from '../js/abi/rootToken.abi.json'
 import { trelloContractAddress, tokens } from '../constants'
@@ -36,7 +36,7 @@ export async function addCard(params) {
   // ])
   const result = await runRootTokenContract(params.address).approve(
     trelloContractAddress,
-    BigNumber(params.amount * 10 ** 18),
+    BigNumber.from(params.amount * 10 ** 18),
   )
   console.log(result)
 
