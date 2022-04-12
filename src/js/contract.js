@@ -84,7 +84,7 @@ export async function getTokenBalance(rootTokenAddr) {
 }
 
 function showContractError(error) {
-  console.log('full data error', regs)
+  console.log('full data error', error)
   if (error.indexOf('execution reverted:') >= 0) {
     const regs = e.match(/\d+/)
     console.log('getError=', regs)
