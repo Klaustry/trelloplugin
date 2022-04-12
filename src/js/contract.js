@@ -2,6 +2,7 @@ import { ethers, BigNumber } from 'ethers'
 import trelloAbi from '../js/abi/trelloContract.abi.json'
 import rootTokenAbi from '../js/abi/rootToken.abi.json'
 import { trelloContractAddress } from '../constants'
+import { getError } from './utils/errors'
 
 var t = window.TrelloPowerUp.iframe()
 
