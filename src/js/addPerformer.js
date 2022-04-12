@@ -25,21 +25,12 @@ const sendRewardParams = async () => {
   //console.log('Context', context.card, context.member, context.organization)
   await addPerformer(context.board, context.card, context.member)
     .then(async (e) => {
-      if (e.indexOf('execution reverted:') >= 0) {
-        const regs = e.match(/\d+/)
-        console.log('getError=', regs, getError(Number(regs[0])))
-        t.alert({
-          message: `❌ Error: ${e}!`,
-          duration: 2,
-        })
-      } else {
-        await t.alert({
-          message: '✔️ Сongratulations! You have become a performer',
-          duration: 1,
-        })
-        await t.set('card', 'shared', 'status', 2)
-        await t.closePopup()
-      }
+      await t.alert({
+        message: '✔️ Сongratulations! You have become a performer',
+        duration: 1,
+      })
+      await t.set('card', 'shared', 'status', 2)
+      await t.closePopup()
     })
     .catch((e) => {
       t.closePopup()
