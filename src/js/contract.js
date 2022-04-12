@@ -33,10 +33,9 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
     tokenIndex,
     trelloContractAddress,
   ])
-  const result = await contractABC.approve(
-    trelloContractAddress,
-    amount * 10 ** tokens[tokenIndex].decimals,
-  )
+  const result = await runRootTokenContract(
+    tokens[tokenIndex].contractAddress,
+  ).approve(trelloContractAddress, amount * 10 ** tokens[tokenIndex].decimals)
   console.log(result)
 
   try {
