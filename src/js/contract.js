@@ -31,6 +31,12 @@ export async function addCard(params) {
       BigNumber.from((params.amount * 10 ** params.decimals).toString()),
     )
     console.log('Root token approve result:', result)
+  } catch (e) {
+    console.error('approve error', e)
+    showContractError(e.data.message)
+  }
+
+  try {
     const res = await runTrelloContract.addCard(
       params.board,
       params.card,
@@ -39,11 +45,17 @@ export async function addCard(params) {
       params.address,
     )
     console.log('Trello contract addCard result:', res)
-    const event = await runTrelloContract.filters.addCard_E(params.card)
-    console.log('Trello contract addCard event result:', event)
-    return await res
   } catch (e) {
     console.error('addCard error', e)
+    showContractError(e.data.message)
+  }
+
+  try {
+    const event = await runTrelloContract.filters.addCard_E(params.card)
+    console.log('Trello contract addCard event result:', event)
+    return await event
+  } catch (e) {
+    console.error('addCard event error', e)
     showContractError(e.data.message)
   }
 }
