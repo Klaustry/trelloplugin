@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-const sendRewardParams = async (amount, token) => {
+const sendRewardParams = async (amount, tokenIndex) => {
   const context = t.getContext()
   console.log(t.getContext())
   //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log('amount', amount)
-    addCard(context.card, context.member, amount, token)
+    addCard(context.card, context.card, context.member, amount, tokenIndex)
       .then(async (e) => {
         console.log('Success', e)
         await t.set('card', 'shared', 'reward', `💰 ${amount} ${token}`)

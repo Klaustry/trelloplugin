@@ -5,21 +5,102 @@
     "type": "constructor"
   },
   {
+    "anonymous": false,
     "inputs": [
       {
-        "internalType": "string",
-        "name": "_boardID",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
+        "indexed": true,
+        "internalType": "uint256",
         "name": "_cardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_creatorAddr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
         "internalType": "string",
-        "name": "_creatorID",
+        "name": "_symbol",
         "type": "string"
+      }
+    ],
+    "name": "addCard_E",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_cardID",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_performerAddr",
+        "type": "address"
+      }
+    ],
+    "name": "addPerformer_E",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_cardID",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_creatorAddr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_performerAddr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "finishCard_E",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_boardID",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_cardID",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_creatorID",
+        "type": "uint256"
       },
       {
         "internalType": "uint256",
@@ -40,19 +121,19 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "_cardID",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_boardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
+        "name": "_cardID",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
         "name": "_performerID",
-        "type": "string"
+        "type": "uint256"
       }
     ],
     "name": "addPerformer",
@@ -87,37 +168,37 @@
   {
     "inputs": [
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "",
-        "type": "string"
+        "type": "uint256"
       }
     ],
     "name": "cardInfo",
     "outputs": [
       {
         "internalType": "bool",
-        "name": "exists",
+        "name": "done",
         "type": "bool"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "creatorID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "boardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "cardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
         "internalType": "address",
@@ -140,9 +221,9 @@
         "type": "string"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "performerID",
-        "type": "string"
+        "type": "uint256"
       },
       {
         "internalType": "address",
@@ -156,46 +237,14 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "name": "cards",
-    "outputs": [
-      {
         "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "curIndex",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
         "name": "_boardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_cardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
         "internalType": "uint256",
@@ -211,14 +260,14 @@
   {
     "inputs": [
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_boardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_cardID",
-        "type": "string"
+        "type": "uint256"
       }
     ],
     "name": "existCard",
@@ -235,14 +284,14 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "_cardID",
-        "type": "string"
+        "internalType": "uint256",
+        "name": "_boardID",
+        "type": "uint256"
       },
       {
-        "internalType": "string",
-        "name": "_boardID",
-        "type": "string"
+        "internalType": "uint256",
+        "name": "_cardID",
+        "type": "uint256"
       }
     ],
     "name": "finishCard",
@@ -253,14 +302,14 @@
   {
     "inputs": [
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_boardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_cardID",
-        "type": "string"
+        "type": "uint256"
       }
     ],
     "name": "getCard",
@@ -269,23 +318,23 @@
         "components": [
           {
             "internalType": "bool",
-            "name": "exists",
+            "name": "done",
             "type": "bool"
           },
           {
-            "internalType": "string",
+            "internalType": "uint256",
             "name": "creatorID",
-            "type": "string"
+            "type": "uint256"
           },
           {
-            "internalType": "string",
+            "internalType": "uint256",
             "name": "boardID",
-            "type": "string"
+            "type": "uint256"
           },
           {
-            "internalType": "string",
+            "internalType": "uint256",
             "name": "cardID",
-            "type": "string"
+            "type": "uint256"
           },
           {
             "internalType": "address",
@@ -308,9 +357,9 @@
             "type": "string"
           },
           {
-            "internalType": "string",
+            "internalType": "uint256",
             "name": "performerID",
-            "type": "string"
+            "type": "uint256"
           },
           {
             "internalType": "address",
@@ -342,14 +391,14 @@
   {
     "inputs": [
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_boardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "_cardID",
-        "type": "string"
+        "type": "uint256"
       },
       {
         "internalType": "uint256",

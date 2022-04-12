@@ -17,4 +17,4 @@ export const tokens = [
 ]
 
 export const trelloContractAddress =
-  '0x2CB85bE6f340B231952C39c079C77A59e8B86f7f'
+  '0xE81e7d266eE7DA9E37F3501544F0efBB6796DB4b'

@@ -1,7 +1,7 @@
 //import { ethers } from 'ethers'
 import trelloAbi from '../js/abi/trelloContract.abi.json'
 import rootTokenAbi from '../js/abi/rootToken.abi.json'
-import { trelloContractAddress } from '../constants'
+import { trelloContractAddress, tokens } from '../constants'
 
 // 0x65980436414edce9C067e8E9bbc284E2795a39A2 RootTokenAddr ABC
 // 0x433c4297C6eb05144c1289Fd84b198a639336728 trelloStorage
@@ -24,28 +24,26 @@ const runLocalTrelloContract = new ethers.Contract(
   provider,
 )
 
-async function addCard(boardID, cardID, creatorID, amount, token) {
-  const accounts = await ethereum.request({ method: 'eth_accounts' })
-
+async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
   const result = await contractABC.approve(
-    '0x9bc5baF874d2DA8D216aE9f137804184EE5AfEF4',
-    '70000',
+    trelloContractAddress,
+    amount * 10 ** tokens[tokenIndex].decimals,
   )
   console.log(result)
 
-  // try {
-  //   const res = await contract.addCard(
-  //     boardID,
-  //     cardID,
-  //     creatorID,
-  //     amount,
-  //     token,
-  //   )
-  //   console.log('response', res)
-  //   return await res
-  // } catch (e) {
-  //   console.error(e)
-  // }
+  try {
+    const res = await contract.addCard(
+      boardID,
+      cardID,
+      creatorID,
+      amount * 10 ** tokens[tokenIndex].decimals,
+      tokens[tokenIndex].symbol,
+    )
+    console.log('response', res)
+    return await res
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 async function addPerformer(cardID, performerID) {
