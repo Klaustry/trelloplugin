@@ -41,6 +41,7 @@ const getActionButton = function (id) {
 }
 
 const getCardRewardInfo = function (t, card) {
+  console.log(card)
   return getCard(card.board, card.id).then(function (e) {
     //t.remove('card', 'shared', ['reward', 'status'])
     if (e.creatorID != '') {
@@ -119,7 +120,7 @@ async function connectWallet() {
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
-    return t.card('id', 'board').then(function (e) {
+    return t.card('all').then(function (e) {
       return getCardRewardInfo(t, e)
     })
   },
