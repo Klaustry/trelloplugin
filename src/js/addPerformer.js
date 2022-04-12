@@ -1,4 +1,5 @@
 import { addPerformer, getCard } from './contract.js'
+import { getError } from './utils/errors.js'
 
 var t = window.TrelloPowerUp.iframe()
 var Promise = TrelloPowerUp.Promise
@@ -24,9 +25,9 @@ const sendRewardParams = async () => {
   //console.log('Context', context.card, context.member, context.organization)
   await addPerformer(context.board, context.card, context.member)
     .then(async (e) => {
-      if (typeof e === 'string') {
-        const json = JSON.parse(`{${e}}`)
-        console.log('Success', json)
+      if (e.indexOf('execution reverted:') >= 0) {
+        const regs = e.match(/\d+/)
+        console.log('getError=', getError(regs[0]))
         t.alert({
           message: `❌ Error: ${e}!`,
           duration: 2,
