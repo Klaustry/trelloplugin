@@ -44,23 +44,28 @@ const sendRewardParams = async (amount, tokenIndex) => {
     }
 
     addCard(params)
-    // .then(async (e) => {
-    //   console.log('Success', e)
-    //   await t.set('card', 'shared', 'reward', `💰 ${amount} ${token}`)
-    //   await t.set('card', 'shared', 'status', 1)
-    //   // await t.alert({
-    //   //   message: '✔️ Great! You created an award!',
-    //   //   duration: 1,
-    //   // })
-    //   await t.closePopup()
-    // })
-    // .catch((e) => {
-    //   t.closePopup()
-    //   // t.alert({
-    //   //   message: `❌ Error: ${e.message}!`,
-    //   //   duration: 1,
-    //   // })
-    // })
+      .then(async (e) => {
+        console.log('Success', e)
+        await t.set(
+          'card',
+          'shared',
+          'reward',
+          `💰 ${params.amount} ${params.symbol}`,
+        )
+        await t.set('card', 'shared', 'status', 1)
+        // await t.alert({
+        //   message: '✔️ Great! You created an award!',
+        //   duration: 1,
+        // })
+        await t.closePopup()
+      })
+      .catch((e) => {
+        t.closePopup()
+        // t.alert({
+        //   message: `❌ Error: ${e.message}!`,
+        //   duration: 1,
+        // })
+      })
   } else {
     t.closePopup()
     t.alert({
