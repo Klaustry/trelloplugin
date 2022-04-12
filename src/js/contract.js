@@ -36,7 +36,7 @@ export async function addCard(params) {
   // ])
   const result = await runRootTokenContract(params.address).approve(
     trelloContractAddress,
-    amount * 10 ** tokens[tokenIndex].decimals,
+    params.amount * 10 ** 18,
   )
   console.log(result)
 
