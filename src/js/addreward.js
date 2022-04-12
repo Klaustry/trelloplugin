@@ -8,10 +8,10 @@ document.getElementById('addRewardButton') &&
   document
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
-      // sendRewardParams(
-      //   parseFloat(document.getElementById('idAmount').value),
-      //   parseInt(document.getElementById('idSelectToken').value),
-      // )
+      sendRewardParams(
+        parseFloat(document.getElementById('idAmount').value),
+        parseInt(document.getElementById('idSelectToken').value),
+      )
       console.log('addReward Clicked!')
     })
 
@@ -59,10 +59,10 @@ const sendRewardParams = async (amount, tokenIndex) => {
     // })
   } else {
     t.closePopup()
-    // t.alert({
-    //   message: '❌ Error: Enter amount tokens!',
-    //   duration: 1,
-    // })
+    t.alert({
+      message: '❌ Error: Enter amount tokens!',
+      duration: 1,
+    })
   }
 }
 
