@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 const sendRewardParams = async (amount, tokenIndex) => {
-  //const context = t.getContext()
+  const context = t.getContext()
   //console.log(t.getContext())
   //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
