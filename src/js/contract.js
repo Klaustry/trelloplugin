@@ -36,6 +36,8 @@ export async function addCard(params) {
       params.address,
     )
     console.log('Trello contract addCard result:', res)
+    const event = runTrelloContract.filters.addCard_E(params.card)
+    console.log('Trello contract addCard event result:', event)
     return await res
   } catch (e) {
     console.error(e.message)
