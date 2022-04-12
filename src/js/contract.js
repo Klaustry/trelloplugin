@@ -49,7 +49,7 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
     console.log('response', res)
     //return await res
   } catch (e) {
-    console.error(e)
+    console.error(e.message)
   }
 }
 
