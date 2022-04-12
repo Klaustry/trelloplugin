@@ -29,7 +29,7 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
     boardID,
     cardID,
     creatorID,
-    amount,
+    Number(amount * 10 ** tokens[tokenIndex].decimals),
     tokenIndex,
     trelloContractAddress,
   ])
