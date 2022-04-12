@@ -40,7 +40,6 @@ const sendRewardParams = async () => {
         duration: 1,
       })
     })
-  await t.set('card', 'shared', 'status', 2)
 }
 
 t.render(function () {

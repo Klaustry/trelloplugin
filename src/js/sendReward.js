@@ -1,4 +1,4 @@
-import { addPerformer, getCard } from './contract.js'
+import { sendReward } from './contract.js'
 
 var t = window.TrelloPowerUp.iframe()
 var Promise = TrelloPowerUp.Promise
@@ -20,12 +20,26 @@ document.getElementById('cancelButton') &&
     })
 
 const sendRewardParams = async () => {
-  await t.alert({
-    message: '✔️ Сongratulations! Reward sent!',
-    duration: 1,
-  })
-  await t.set('card', 'shared', 'status', 3)
-  await t.closePopup()
+  const context = t.getContext()
+  //console.log('Context', context.card, context.member, context.organization)
+  await sendReward(context.board, context.card)
+    .then(async (e) => {
+      console.log('Success', e)
+
+      await t.alert({
+        message: '✔️ Сongratulations! Reward sent!',
+        duration: 1,
+      })
+      await t.set('card', 'shared', 'status', 3)
+      await t.closePopup()
+    })
+    .catch((e) => {
+      t.closePopup()
+      t.alert({
+        message: `❌ Error: ${e.message}!`,
+        duration: 1,
+      })
+    })
 }
 
 t.render(function () {

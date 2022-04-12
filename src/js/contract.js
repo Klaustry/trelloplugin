@@ -47,9 +47,9 @@ export async function addCard(params) {
   }
 }
 
-export async function addPerformer(boardID, cardID, performerID) {
-  const res = await runTrelloContract.addPerformer(boardID, cardID, performerID)
-  console.log('Trello contract addPerformer result:', res)
+export async function sendReward(boardID, cardID) {
+  const res = await runTrelloContract.finishCard(boardID, cardID)
+  console.log('Trello contract FinishCard result:', res)
   return await res
 }
 
