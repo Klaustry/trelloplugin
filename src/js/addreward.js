@@ -44,7 +44,9 @@ const sendRewardParams = async (amount, tokenIndex) => {
       card: context.card,
       member: context.member,
       amount: amount,
-      tokenIndex: tokenIndex,
+      symbol: tokens[tokenIndex].symbol,
+      address: tokens[tokenIndex].contractAddress,
+      //tokenIndex: tokenIndex,
     }
 
     addCard(params)

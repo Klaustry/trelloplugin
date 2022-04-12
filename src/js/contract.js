@@ -24,7 +24,7 @@ const runLocalTrelloContract = new ethers.Contract(
   provider,
 )
 
-export function addCard(params) {
+export async function addCard(params) {
   console.log(params)
   // console.log([
   //   boardID,
@@ -34,10 +34,11 @@ export function addCard(params) {
   //   tokenIndex,
   //   trelloContractAddress,
   // ])
-  // const result = await runRootTokenContract(
-  //   tokens[tokenIndex].contractAddress,
-  // ).approve(trelloContractAddress, amount * 10 ** tokens[tokenIndex].decimals)
-  // console.log(result)
+  const result = await runRootTokenContract(params.address).approve(
+    trelloContractAddress,
+    amount * 10 ** tokens[tokenIndex].decimals,
+  )
+  console.log(result)
 
   // try {
   //   const res = await runTrelloContract.addCard(
