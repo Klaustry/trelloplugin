@@ -25,20 +25,12 @@ const runLocalTrelloContract = new ethers.Contract(
 )
 
 export async function addCard(params) {
-  console.log(params)
-  // console.log([
-  //   boardID,
-  //   cardID,
-  //   creatorID,
-  //   Number(amount * 10 ** tokens[tokenIndex].decimals),
-  //   tokenIndex,
-  //   trelloContractAddress,
-  // ])
+  console.log('input params addCard', params)
   const result = await runRootTokenContract(params.address).approve(
     trelloContractAddress,
     BigNumber.from((params.amount * 10 ** 18).toString()),
   )
-  console.log(result)
+  console.log('Root token approve result:', result)
 
   try {
     const res = await runTrelloContract.addCard(
@@ -48,7 +40,7 @@ export async function addCard(params) {
       BigNumber.from((params.amount * 10 ** 18).toString()),
       params.address,
     )
-    console.log('response', res)
+    console.log('Trello contract addCard result:', res)
     return await res
   } catch (e) {
     console.error(e.message)
