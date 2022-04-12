@@ -113,7 +113,7 @@ function showContractError(error) {
     console.log('regs result', regs)
     t.alert({
       message: `❌ Error: ${getError(Number(regs[0]))}!`,
-      duration: 2,
+      duration: 1,
     })
   }
 }
