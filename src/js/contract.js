@@ -39,7 +39,7 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
   console.log(result)
 
   try {
-    const res = await contract.addCard(
+    const res = await runTrelloContract.addCard(
       boardID,
       cardID,
       creatorID,
@@ -54,13 +54,13 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
 }
 
 export async function addPerformer(boardID, cardID, performerID) {
-  const res = await contract.addPerformer(boardID, cardID, performerID)
+  const res = await runTrelloContract.addPerformer(boardID, cardID, performerID)
   console.log('response', res)
   return await res
 }
 
 export async function getCard(boardID, cardID) {
-  return await runLocalContract.cardInfo(boardID, cardID)
+  return await runLocalTrelloContractcardInfo(boardID, cardID)
 }
 
 async function connect() {
