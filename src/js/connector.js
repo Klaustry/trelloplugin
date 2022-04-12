@@ -40,16 +40,17 @@ const getActionButton = function (id) {
   return action
 }
 
-const getCardRewardInfo = function (t, card) {
-  console.log(t.getContext(), card)
-  return getCard(t.getContext().board, card.id).then(function (e) {
+const getCardRewardInfo = async function (t, card) {
+  //console.log(t.getContext(), card)
+  await getCard(t.getContext().board, card.id).then(function (e) {
+    console.log(e)
     //t.remove('card', 'shared', ['reward', 'status'])
     if (e.creatorID != '') {
       t.set(
         'card',
         'shared',
         'reward',
-        e.exists && `💰 ${e.amount / 10 ** 18} ${e.symbol}`,
+        e.creatorID != '' && `💰 ${e.amount / 10 ** 18} ${e.symbol}`,
       )
       t.set(
         'card',
@@ -63,7 +64,7 @@ const getCardRewardInfo = function (t, card) {
     //   .then((e) => console.log(e))
     //   .catch(() => console.log('no data'))
     //console.log('get card info', e)
-    return t
+    return await t
       .get('card', 'shared')
       .then(function (e) {
         console.log('card info', e)
