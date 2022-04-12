@@ -1,6 +1,6 @@
 console.log('hello world!')
 
-import { getCard } from './contract.js'
+//import { getCard } from './contract.js'
 import { getStatus } from './utils/helpers.js'
 var Promise = TrelloPowerUp.Promise
 
@@ -40,25 +40,22 @@ const getActionButton = function (id) {
   return action
 }
 
-const getCardRewardInfo = async function (t, card) {
-  //console.log(t.getContext(), card)
-  // await getCard(t.getContext().board, card.id).then(async function (e) {
-  //   console.log(e)
-  //   //t.remove('card', 'shared', ['reward', 'status'])
-  //   if (e.creatorID != '') {
-  //     t.set(
-  //       'card',
-  //       'shared',
-  //       'reward',
-  //       e.creatorID != '' && `💰 ${e.amount / 10 ** 18} ${e.symbol}`,
-  //     )
-  //     t.set(
-  //       'card',
-  //       'shared',
-  //       'status',
-  //       e.done ? 3 : e.performerID != '' ? 2 : e.creatorID != '' ? 1 : 0,
-  //     )
-  //   }
+const getCardRewardInfo = function (t, card) {
+  //return getCard(card.id).then(function (e) {
+  //t.remove('card', 'shared', ['reward', 'status'])
+  // if (e.exists) {
+  //   t.set('card', 'shared', 'reward', e.exists && `💰 ${e.amount} ${e.token}`)
+  //   t.set(
+  //     'card',
+  //     'shared',
+  //     'status',
+  //     e.exists && e.performerID === ''
+  //       ? 1
+  //       : e.exists && e.performerID != ''
+  //       ? 2
+  //       : 0,
+  //   )
+  // }
 
   // t.getAll()
   //   .then((e) => console.log(e))
@@ -67,7 +64,7 @@ const getCardRewardInfo = async function (t, card) {
   return t
     .get('card', 'shared')
     .then(function (e) {
-      console.log('card info', e)
+      console.log('eeee', e)
       return [
         { title: 'Reward', text: e.reward },
         {
@@ -106,8 +103,10 @@ var sendReward = function (t) {
 
 async function getSliceAddress(t) {
   if (ethereum.isConnected()) {
-    const accounts = await ethereum.request({ method: 'eth_accounts' })
-    const account = accounts[0]
+    // const accounts = await ethereum.request({ method: 'eth_accounts' })
+    // const account = accounts[0]
+    const account =
+      '56e872e06a354bfc7104eccbf4234af44f13ba97cacbe644e6068ab145f42849'
     return account.slice(0, 8) + '...' + account.slice(-8, -1)
   } else {
     return false
