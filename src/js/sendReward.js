@@ -3,12 +3,12 @@ import { sendReward } from './contract.js'
 var t = window.TrelloPowerUp.iframe()
 var Promise = TrelloPowerUp.Promise
 
-document.getElementById('addPerformButton') &&
+document.getElementById('sendRewardButton') &&
   document
-    .getElementById('addPerformButton')
+    .getElementById('sendRewardButton')
     .addEventListener('click', function (event) {
       sendRewardParams()
-      console.log('Perform Clicked!')
+      console.log('sendReward Clicked!')
     })
 
 document.getElementById('cancelButton') &&
