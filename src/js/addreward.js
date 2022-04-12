@@ -11,7 +11,7 @@ document.getElementById('addRewardButton') &&
       sendRewardParams(
         //document.getElementById('idSelectBlockChain').value,
         document.getElementById('idAmount').value,
-        document.getElementById('idSelectToken').value,
+        Nubmer(document.getElementById('idSelectToken').value),
       )
       //console.log('addReward Clicked!')
     })
