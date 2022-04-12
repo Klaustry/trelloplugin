@@ -39,7 +39,15 @@ const sendRewardParams = async (amount, tokenIndex) => {
       tokens[tokenIndex].symbol,
       tokens[tokenIndex].contractAddress,
     )
-    //addCard(/*context.board, context.card, context.member, amount,*/ tokenIndex)
+    const params = {
+      board: context.board,
+      card: context.card,
+      member: context.member,
+      amount: amount,
+      tokenIndex: tokenIndex,
+    }
+
+    addCard(params)
     // .then(async (e) => {
     //   console.log('Success', e)
     //   await t.set('card', 'shared', 'reward', `💰 ${amount} ${token}`)
