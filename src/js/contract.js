@@ -53,8 +53,8 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
   }
 }
 
-export async function addPerformer(cardID, performerID) {
-  const res = await contract.addPerformer(cardID, performerID)
+export async function addPerformer(boardID, cardID, performerID) {
+  const res = await contract.addPerformer(boardID, cardID, performerID)
   console.log('response', res)
   return await res
 }
