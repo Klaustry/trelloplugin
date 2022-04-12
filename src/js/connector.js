@@ -42,7 +42,7 @@ const getActionButton = function (id) {
 
 const getCardRewardInfo = async function (t, card) {
   //console.log(t.getContext(), card)
-  await getCard(t.getContext().board, card.id).then(function (e) {
+  await getCard(t.getContext().board, card.id).then(async function (e) {
     console.log(e)
     //t.remove('card', 'shared', ['reward', 'status'])
     if (e.creatorID != '') {
