@@ -24,7 +24,15 @@ const runLocalTrelloContract = new ethers.Contract(
   provider,
 )
 
-async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
+export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
+  console.group([
+    boardID,
+    cardID,
+    creatorID,
+    amount,
+    tokenIndex,
+    trelloContractAddress,
+  ])
   const result = await contractABC.approve(
     trelloContractAddress,
     amount * 10 ** tokens[tokenIndex].decimals,
@@ -46,13 +54,13 @@ async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
   }
 }
 
-async function addPerformer(cardID, performerID) {
+export async function addPerformer(cardID, performerID) {
   const res = await contract.addPerformer(cardID, performerID)
   console.log('response', res)
   return await res
 }
 
-async function getCard(boardID, cardID) {
+export async function getCard(boardID, cardID) {
   return await runLocalContract.cardInfo(boardID, cardID)
 }
 
