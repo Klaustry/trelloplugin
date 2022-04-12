@@ -33,20 +33,14 @@ const sendRewardParams = async (amount, tokenIndex) => {
   //console.log(t.getContext())
   //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
-    console.log(
-      'amount',
-      amount,
-      tokens[tokenIndex].symbol,
-      tokens[tokenIndex].contractAddress,
-    )
     const params = {
       board: context.board,
       card: context.card,
       member: context.member,
       amount: amount,
       symbol: tokens[tokenIndex].symbol,
+      decimals: tokens[tokenIndex].decimals,
       address: tokens[tokenIndex].contractAddress,
-      //tokenIndex: tokenIndex,
     }
 
     addCard(params)

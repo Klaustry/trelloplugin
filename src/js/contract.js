@@ -40,20 +40,19 @@ export async function addCard(params) {
   )
   console.log(result)
 
-  // try {
-  //   const res = await runTrelloContract.addCard(
-  //     boardID,
-  //     cardID,
-  //     creatorID,
-  //     amount * 10 ** tokens[tokenIndex].decimals,
-  //     tokens[tokenIndex].symbol,
-  //   )
-  //   console.log('response', res)
-  //   //return await res
-  // } catch (e) {
-  //   console.error(e.message)
-  // }
-  //return await 1
+  try {
+    const res = await runTrelloContract.addCard(
+      params.board,
+      params.card,
+      params.member,
+      amount * 10 ** params.decimals,
+      params.symbol,
+    )
+    console.log('response', res)
+    return await res
+  } catch (e) {
+    console.error(e.message)
+  }
 }
 
 export async function addPerformer(boardID, cardID, performerID) {
