@@ -25,7 +25,6 @@ const sendRewardParams = async () => {
   //console.log('Context', context.card, context.member, context.organization)
   try {
     await addPerformer(context.board, context.card, context.member)
-
     await t.alert({
       message: '✔️ Сongratulations! You have become a performer',
       duration: 1,
