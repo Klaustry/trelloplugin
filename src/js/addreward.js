@@ -8,12 +8,11 @@ document.getElementById('addRewardButton') &&
   document
     .getElementById('addRewardButton')
     .addEventListener('click', function (event) {
-      sendRewardParams(
-        //document.getElementById('idSelectBlockChain').value,
-        parseFloat(document.getElementById('idAmount').value),
-        parseInt(document.getElementById('idSelectToken').value),
-      )
-      //console.log('addReward Clicked!')
+      // sendRewardParams(
+      //   parseFloat(document.getElementById('idAmount').value),
+      //   parseInt(document.getElementById('idSelectToken').value),
+      // )
+      console.log('addReward Clicked!')
     })
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -30,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 const sendRewardParams = async (amount, tokenIndex) => {
-  const context = t.getContext()
-  console.log(t.getContext())
+  //const context = t.getContext()
+  //console.log(t.getContext())
   //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log(
