@@ -23,14 +23,15 @@ const sendRewardParams = async () => {
   const context = t.getContext()
   //console.log('Context', context.card, context.member, context.organization)
   try {
-    await sendReward(context.board, context.card)
-    // .then(async (e) => {
-    //   console.log('Success', e)
-    await t.alert({
-      message: '✔️ Сongratulations! Reward sent!',
-      duration: 1,
-    })
-    await t.set('card', 'shared', 'status', 3)
+    if (await sendReward(context.board, context.card)) {
+      // .then(async (e) => {
+      //   console.log('Success', e)
+      await t.alert({
+        message: '✔️ Сongratulations! Reward sent!',
+        duration: 1,
+      })
+      await t.set('card', 'shared', 'status', 3)
+    }
     await t.closePopup()
   } catch (e) {
     t.closePopup()

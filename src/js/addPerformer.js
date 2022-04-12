@@ -24,12 +24,14 @@ const sendRewardParams = async () => {
   const context = t.getContext()
   //console.log('Context', context.card, context.member, context.organization)
   try {
-    await addPerformer(context.board, context.card, context.member)
-    await t.alert({
-      message: '✔️ Сongratulations! You have become a performer',
-      duration: 1,
-    })
-    await t.set('card', 'shared', 'status', 2)
+    if (await addPerformer(context.board, context.card, context.member)) {
+      await t.alert({
+        message: '✔️ Сongratulations! You have become a performer',
+        duration: 1,
+      })
+      await t.set('card', 'shared', 'status', 2)
+    }
+
     await t.closePopup()
   } catch (e) {
     t.closePopup()

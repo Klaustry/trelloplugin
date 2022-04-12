@@ -43,20 +43,21 @@ const sendRewardParams = async (amount, tokenIndex) => {
       address: tokens[tokenIndex].contractAddress,
     }
     try {
-      await addCard(params)
-      // .then(async (e) => {
-      //   console.log('Success', e)
-      await t.set(
-        'card',
-        'shared',
-        'reward',
-        `💰 ${params.amount} ${params.symbol}`,
-      )
-      await t.set('card', 'shared', 'status', 1)
-      await t.alert({
-        message: '✔️ Great! You created an award!',
-        duration: 1,
-      })
+      if (await addCard(params)) {
+        // .then(async (e) => {
+        //   console.log('Success', e)
+        await t.set(
+          'card',
+          'shared',
+          'reward',
+          `💰 ${params.amount} ${params.symbol}`,
+        )
+        await t.set('card', 'shared', 'status', 1)
+        await t.alert({
+          message: '✔️ Great! You created an award!',
+          duration: 1,
+        })
+      }
       await t.closePopup()
     } catch (e) {
       await t.alert({
