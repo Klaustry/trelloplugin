@@ -22,7 +22,7 @@ document.getElementById('cancelButton') &&
 const sendRewardParams = async () => {
   const context = t.getContext()
   //console.log('Context', context.card, context.member, context.organization)
-  await addPerformer(context.card, context.member)
+  await addPerformer(context.board, context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
 
