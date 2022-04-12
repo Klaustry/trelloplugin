@@ -46,7 +46,7 @@ export async function addCard(params) {
       params.card,
       params.member,
       params.amount,
-      params.symbol,
+      params.address,
     )
     console.log('response', res)
     return await res
