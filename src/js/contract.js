@@ -52,7 +52,8 @@ export async function addPerformer(boardID, cardID, performerID) {
     console.log('Trello contract addPerformer result:', res)
     return await res
   } catch (e) {
-    console.log('eeeeeeee', e.data)
+    console.log('eeeeeeee', e.data.message)
+    return await e.data.message
   }
 }
 

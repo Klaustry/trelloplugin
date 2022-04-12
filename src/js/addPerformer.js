@@ -25,7 +25,7 @@ const sendRewardParams = async () => {
   await addPerformer(context.board, context.card, context.member)
     .then(async (e) => {
       console.log('Success', e)
-
+      //if(typeof e === 'object')
       await t.alert({
         message: '✔️ Сongratulations! You have become a performer',
         duration: 1,
@@ -36,7 +36,7 @@ const sendRewardParams = async () => {
     .catch((e) => {
       t.closePopup()
       t.alert({
-        message: `❌ Error: ${e.message}!`,
+        message: `❌ Error: ${e}!`,
         duration: 1,
       })
     })
