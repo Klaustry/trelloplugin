@@ -41,7 +41,7 @@ const getActionButton = function (id) {
 }
 
 const getCardRewardInfo = function (t, card) {
-  console.log(t.get('board'), card)
+  console.log(t.getContext(), card)
   // return getCard(card.board, card.id).then(function (e) {
   //   //t.remove('card', 'shared', ['reward', 'status'])
   //   if (e.creatorID != '') {
@@ -63,19 +63,19 @@ const getCardRewardInfo = function (t, card) {
   //   .then((e) => console.log(e))
   //   .catch(() => console.log('no data'))
   //console.log('get card info', e)
-  return t
-    .get('card', 'shared')
-    .then(function (e) {
-      console.log('card info', e)
-      return [
-        { title: 'Reward', text: e.reward },
-        {
-          title: 'Status',
-          text: getStatus(e.status).name,
-        },
-      ]
-    })
-    .catch(() => [])
+  // return t
+  //   .get('card', 'shared')
+  //   .then(function (e) {
+  //     console.log('card info', e)
+  //     return [
+  //       { title: 'Reward', text: e.reward },
+  //       {
+  //         title: 'Status',
+  //         text: getStatus(e.status).name,
+  //       },
+  //     ]
+  //   })
+  //   .catch(() => [])
   //})
 }
 
