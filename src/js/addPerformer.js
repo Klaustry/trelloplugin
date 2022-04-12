@@ -24,19 +24,26 @@ const sendRewardParams = async () => {
   //console.log('Context', context.card, context.member, context.organization)
   await addPerformer(context.board, context.card, context.member)
     .then(async (e) => {
-      console.log('Success', e)
-      //if(typeof e === 'object')
-      await t.alert({
-        message: '✔️ Сongratulations! You have become a performer',
-        duration: 1,
-      })
-      await t.set('card', 'shared', 'status', 2)
-      await t.closePopup()
+      if (typeof e === 'string') {
+        const json = JSON.parse(`{${e}}`)
+        console.log('Success', json)
+        t.alert({
+          message: `❌ Error: ${e}!`,
+          duration: 2,
+        })
+      } else {
+        await t.alert({
+          message: '✔️ Сongratulations! You have become a performer',
+          duration: 1,
+        })
+        await t.set('card', 'shared', 'status', 2)
+        await t.closePopup()
+      }
     })
     .catch((e) => {
       t.closePopup()
       t.alert({
-        message: `❌ Error: ${e}!`,
+        message: `❌ Error: ${e.message}!`,
         duration: 1,
       })
     })
