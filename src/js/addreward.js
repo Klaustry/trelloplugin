@@ -10,8 +10,8 @@ document.getElementById('addRewardButton') &&
     .addEventListener('click', function (event) {
       sendRewardParams(
         //document.getElementById('idSelectBlockChain').value,
-        document.getElementById('idAmount').value,
-        Nubmer(document.getElementById('idSelectToken').value),
+        parseFloat(document.getElementById('idAmount').value),
+        parseInt(document.getElementById('idSelectToken').value),
       )
       //console.log('addReward Clicked!')
     })

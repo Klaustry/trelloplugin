@@ -25,7 +25,7 @@ const runLocalTrelloContract = new ethers.Contract(
 )
 
 export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
-  console.group([
+  console.log([
     boardID,
     cardID,
     creatorID,
@@ -38,19 +38,19 @@ export async function addCard(boardID, cardID, creatorID, amount, tokenIndex) {
   ).approve(trelloContractAddress, amount * 10 ** tokens[tokenIndex].decimals)
   console.log(result)
 
-  try {
-    const res = await runTrelloContract.addCard(
-      boardID,
-      cardID,
-      creatorID,
-      amount * 10 ** tokens[tokenIndex].decimals,
-      tokens[tokenIndex].symbol,
-    )
-    console.log('response', res)
-    //return await res
-  } catch (e) {
-    console.error(e.message)
-  }
+  // try {
+  //   const res = await runTrelloContract.addCard(
+  //     boardID,
+  //     cardID,
+  //     creatorID,
+  //     amount * 10 ** tokens[tokenIndex].decimals,
+  //     tokens[tokenIndex].symbol,
+  //   )
+  //   console.log('response', res)
+  //   //return await res
+  // } catch (e) {
+  //   console.error(e.message)
+  // }
 }
 
 export async function addPerformer(boardID, cardID, performerID) {
