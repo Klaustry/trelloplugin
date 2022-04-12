@@ -24,13 +24,13 @@ const runLocalTrelloContract = new ethers.Contract(
 
 export async function addCard(params) {
   console.log('input params addCard', params)
-  const result = await runRootTokenContract(params.address).approve(
-    trelloContractAddress,
-    BigNumber.from((params.amount * 10 ** params.decimals).toString()),
-  )
-  console.log('Root token approve result:', result)
 
   try {
+    const result = await runRootTokenContract(params.address).approve(
+      trelloContractAddress,
+      BigNumber.from((params.amount * 10 ** params.decimals).toString()),
+    )
+    console.log('Root token approve result:', result)
     const res = await runTrelloContract.addCard(
       params.board,
       params.card,
@@ -43,7 +43,8 @@ export async function addCard(params) {
     console.log('Trello contract addCard event result:', event)
     return await res
   } catch (e) {
-    console.error(e.message)
+    console.error('addCard error', e)
+    showContractError(e.data.message)
   }
 }
 
@@ -57,15 +58,20 @@ export async function addPerformer(boardID, cardID, performerID) {
     console.log('Trello contract addPerformer result:', res)
     return await res
   } catch (e) {
-    console.log('eeeeeeee', e.data.message)
+    console.error('addPerformer error', e.data.message)
     showContractError(e.data.message)
   }
 }
 
 export async function sendReward(boardID, cardID) {
-  const res = await runTrelloContract.finishCard(boardID, cardID)
-  console.log('Trello contract FinishCard result:', res)
-  return await res
+  try {
+    const res = await runTrelloContract.finishCard(boardID, cardID)
+    console.log('Trello contract FinishCard result:', res)
+    return await res
+  } catch (e) {
+    console.error('sendReward error', e.data.message)
+    showContractError(e.data.message)
+  }
 }
 
 export async function getCard(boardID, cardID) {
