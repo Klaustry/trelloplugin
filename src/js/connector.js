@@ -1,6 +1,6 @@
 console.log('hello world!')
 
-//import { getCard } from './contract.js'
+import { getCard } from './contract.js'
 import { getStatus } from './utils/helpers.js'
 var Promise = TrelloPowerUp.Promise
 
