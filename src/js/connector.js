@@ -103,10 +103,8 @@ var sendReward = function (t) {
 
 async function getSliceAddress(t) {
   if (ethereum.isConnected()) {
-    // const accounts = await ethereum.request({ method: 'eth_accounts' })
-    // const account = accounts[0]
-    const account =
-      '56e872e06a354bfc7104eccbf4234af44f13ba97cacbe644e6068ab145f42849'
+    const accounts = await ethereum.request({ method: 'eth_accounts' })
+    const account = accounts[0]
     return account.slice(0, 8) + '...' + account.slice(-8, -1)
   } else {
     return false

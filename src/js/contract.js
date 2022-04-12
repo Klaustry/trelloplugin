@@ -1,7 +1,7 @@
 import { ethers, BigNumber } from 'ethers'
 import trelloAbi from '../js/abi/trelloContract.abi.json'
 import rootTokenAbi from '../js/abi/rootToken.abi.json'
-import { trelloContractAddress, tokens } from '../constants'
+import { trelloContractAddress } from '../constants'
 
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
@@ -23,7 +23,7 @@ export async function addCard(params) {
   console.log('input params addCard', params)
   const result = await runRootTokenContract(params.address).approve(
     trelloContractAddress,
-    BigNumber.from((params.amount * 10 ** 18).toString()),
+    BigNumber.from((params.amount * 10 ** params.decimals).toString()),
   )
   console.log('Root token approve result:', result)
 
@@ -32,7 +32,7 @@ export async function addCard(params) {
       params.board,
       params.card,
       params.member,
-      BigNumber.from((params.amount * 10 ** 18).toString()),
+      BigNumber.from((params.amount * 10 ** params.decimals).toString()),
       params.address,
     )
     console.log('Trello contract addCard result:', res)
@@ -58,22 +58,6 @@ export async function getCard(boardID, cardID) {
   return await runLocalTrelloContract.cardInfo(boardID, cardID)
 }
 
-async function connect() {
-  if (typeof window.ethereum !== 'undefined') {
-    try {
-      await ethereum.request({ method: 'eth_requestAccounts' })
-    } catch (error) {
-      console.log(error)
-    }
-    document.getElementById('connectButton').innerHTML = 'Connected'
-    const accounts = await ethereum.request({ method: 'eth_accounts' })
-    console.log(accounts)
-  } else {
-    document.getElementById('connectButton').innerHTML =
-      'Please install MetaMask'
-  }
-}
-
 export async function getTokenBalance(rootTokenAddr) {
   try {
     const accounts = await ethereum.request({ method: 'eth_accounts' })
@@ -85,38 +69,3 @@ export async function getTokenBalance(rootTokenAddr) {
     console.error(e)
   }
 }
-
-// document.getElementById('connectButton') &&
-//   document
-//     .getElementById('connectButton')
-//     .addEventListener('click', async function (event) {
-//       connect()
-//       console.log('connectWallet Clicked!')
-//     })
-// document.getElementById('addCard') &&
-//   document
-//     .getElementById('addCard')
-//     .addEventListener('click', async function (event) {
-//       await addCard(
-//         '111',
-//         '111',
-//         '111',
-//         1000000,
-//         '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd',
-//       ).then((e) => console.log('addcart', e))
-//       console.log('addCard Clicked!')
-//     })
-// document.getElementById('addPerformer') &&
-//   document
-//     .getElementById('addPerformer')
-//     .addEventListener('click', function (event) {
-//       console.log('addPerformer Clicked!')
-//     })
-// document.getElementById('getCard') &&
-//   document
-//     .getElementById('getCard')
-//     .addEventListener('click', async function (event) {
-//       const r = await contract.getCard('111', '111')
-//       console.log(r)
-//       console.log('getCard Clicked!')
-//     })

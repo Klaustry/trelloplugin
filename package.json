@@ -4,7 +4,7 @@
   "description": "power-ups plugin for trello",
   "main": "index.js",
   "repository": "https://github.com/Klaustry/trelloplugin",
-  "author": "Oliver65535 <oo-tarasov@ya.ru>",
+  "author": "RadianceTeam",
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/html/test-wallet.html",
