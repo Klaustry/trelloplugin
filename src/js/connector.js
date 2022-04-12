@@ -41,40 +41,40 @@ const getActionButton = function (id) {
 }
 
 const getCardRewardInfo = function (t, card) {
-  //return getCard(card.id).then(function (e) {
-  //t.remove('card', 'shared', ['reward', 'status'])
-  // if (e.exists) {
-  //   t.set('card', 'shared', 'reward', e.exists && `💰 ${e.amount} ${e.token}`)
-  //   t.set(
-  //     'card',
-  //     'shared',
-  //     'status',
-  //     e.exists && e.performerID === ''
-  //       ? 1
-  //       : e.exists && e.performerID != ''
-  //       ? 2
-  //       : 0,
-  //   )
-  // }
+  return getCard(card.board, card.id).then(function (e) {
+    t.remove('card', 'shared', ['reward', 'status'])
+    // if (e.exists) {
+    //   t.set('card', 'shared', 'reward', e.exists && `💰 ${e.amount} ${e.token}`)
+    //   t.set(
+    //     'card',
+    //     'shared',
+    //     'status',
+    //     e.exists && e.performerID === ''
+    //       ? 1
+    //       : e.exists && e.performerID != ''
+    //       ? 2
+    //       : 0,
+    //   )
+    // }
 
-  // t.getAll()
-  //   .then((e) => console.log(e))
-  //   .catch(() => console.log('no data'))
-  //console.log('get card info', e)
-  return t
-    .get('card', 'shared')
-    .then(function (e) {
-      console.log('eeee', e)
-      return [
-        { title: 'Reward', text: e.reward },
-        {
-          title: 'Status',
-          text: getStatus(e.status).name,
-        },
-      ]
-    })
-    .catch(() => [])
-  //})
+    // t.getAll()
+    //   .then((e) => console.log(e))
+    //   .catch(() => console.log('no data'))
+    //console.log('get card info', e)
+    return t
+      .get('card', 'shared')
+      .then(function (e) {
+        console.log('card info', e)
+        return [
+          { title: 'Reward', text: e.reward },
+          {
+            title: 'Status',
+            text: getStatus(e.status).name,
+          },
+        ]
+      })
+      .catch(() => [])
+  })
 }
 
 var addReward = function (t) {
@@ -118,8 +118,8 @@ async function connectWallet() {
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
-    return t.card('id').then(function (card) {
-      return getCardRewardInfo(t, card)
+    return t.card('id', 'board').then(function (e) {
+      return getCardRewardInfo(t, e)
     })
   },
   'card-detail-badges': function (t) {
