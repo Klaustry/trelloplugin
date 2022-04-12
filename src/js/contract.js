@@ -45,7 +45,7 @@ export async function addCard(params) {
       params.board,
       params.card,
       params.member,
-      Number(params.amount * 10 ** 18),
+      BigNumber.from((params.amount * 10 ** 18).toString()),
       params.address,
     )
     console.log('response', res)
