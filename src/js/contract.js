@@ -48,15 +48,17 @@ export async function addCard(params) {
   } catch (e) {
     console.error('addCard error', e)
     showContractError(e.data.message)
+    return false
   }
 
   try {
     const event = await runTrelloContract.filters.addCard_E(params.card)
     console.log('Trello contract addCard event result:', event)
-    return await event
+    return await true
   } catch (e) {
     console.error('addCard event error', e)
     showContractError(e.data.message)
+    return false
   }
 }
 
@@ -72,6 +74,7 @@ export async function addPerformer(boardID, cardID, performerID) {
   } catch (e) {
     console.error('addPerformer error', e.data.message)
     showContractError(e.data.message)
+    return false
   }
 }
 
@@ -83,6 +86,7 @@ export async function sendReward(boardID, cardID) {
   } catch (e) {
     console.error('sendReward error', e.data.message)
     showContractError(e.data.message)
+    return false
   }
 }
 
