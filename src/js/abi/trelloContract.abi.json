@@ -1,5 +1,38 @@
 [
   {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_creatorID",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      }
+    ],
+    "name": "addCard",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -9,9 +42,9 @@
     "inputs": [
       {
         "indexed": true,
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_cardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "indexed": true,
@@ -36,13 +69,36 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_performerID",
+        "type": "string"
+      }
+    ],
+    "name": "addPerformer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
         "indexed": true,
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_cardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "indexed": true,
@@ -55,13 +111,54 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "decreaseReward",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_boardID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_cardID",
+        "type": "string"
+      }
+    ],
+    "name": "finishCard",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
         "indexed": true,
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_cardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "indexed": true,
@@ -88,55 +185,22 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_boardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_cardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_creatorID",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "internalType": "uint256",
         "name": "_amount",
         "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_token",
-        "type": "address"
       }
     ],
-    "name": "addCard",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_boardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_cardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_performerID",
-        "type": "uint256"
-      }
-    ],
-    "name": "addPerformer",
+    "name": "increaseReward",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -168,14 +232,14 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "",
-        "type": "uint256"
+        "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "",
-        "type": "uint256"
+        "type": "string"
       }
     ],
     "name": "cardInfo",
@@ -186,19 +250,19 @@
         "type": "bool"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "creatorID",
-        "type": "uint256"
+        "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "boardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "cardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "internalType": "address",
@@ -221,9 +285,9 @@
         "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "performerID",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "internalType": "address",
@@ -237,37 +301,14 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_boardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_cardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "decreaseReward",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_boardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_cardID",
-        "type": "uint256"
+        "type": "string"
       }
     ],
     "name": "existCard",
@@ -284,32 +325,14 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_boardID",
-        "type": "uint256"
+        "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_cardID",
-        "type": "uint256"
-      }
-    ],
-    "name": "finishCard",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_boardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_cardID",
-        "type": "uint256"
+        "type": "string"
       }
     ],
     "name": "getCard",
@@ -322,19 +345,19 @@
             "type": "bool"
           },
           {
-            "internalType": "uint256",
+            "internalType": "string",
             "name": "creatorID",
-            "type": "uint256"
+            "type": "string"
           },
           {
-            "internalType": "uint256",
+            "internalType": "string",
             "name": "boardID",
-            "type": "uint256"
+            "type": "string"
           },
           {
-            "internalType": "uint256",
+            "internalType": "string",
             "name": "cardID",
-            "type": "uint256"
+            "type": "string"
           },
           {
             "internalType": "address",
@@ -357,9 +380,9 @@
             "type": "string"
           },
           {
-            "internalType": "uint256",
+            "internalType": "string",
             "name": "performerID",
-            "type": "uint256"
+            "type": "string"
           },
           {
             "internalType": "address",
@@ -386,29 +409,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_boardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_cardID",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "increaseReward",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]

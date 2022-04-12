@@ -35,7 +35,7 @@ const sendRewardParams = async (amount, tokenIndex) => {
   //console.log('sendRewardParams', blockcahin, amount, token)
   if (amount > 0) {
     console.log('amount', amount)
-    addCard(context.card, context.card, context.member, amount, tokenIndex)
+    addCard(context.board, context.card, context.member, amount, tokenIndex)
       .then(async (e) => {
         console.log('Success', e)
         await t.set('card', 'shared', 'reward', `💰 ${amount} ${token}`)
