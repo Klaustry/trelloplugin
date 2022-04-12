@@ -1,4 +1,4 @@
-//import { ethers } from 'ethers'
+import { ethers } from 'ethers'
 import trelloAbi from '../js/abi/trelloContract.abi.json'
 import rootTokenAbi from '../js/abi/rootToken.abi.json'
 import { trelloContractAddress, tokens } from '../constants'
