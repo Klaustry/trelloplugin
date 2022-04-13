@@ -53,7 +53,7 @@ export async function addCard(params) {
 
   try {
     const event = await runTrelloContract.filters.addCard_E(params.card)
-    console.log('Trello contract addCard event result:', event)
+    console.log('Trello contract addCard event result:', event.topics)
     return await true
   } catch (e) {
     console.error('addCard event error', e)
