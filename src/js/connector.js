@@ -41,6 +41,7 @@ const getActionButton = function (id) {
 }
 
 const getCardRewardInfo = function (t, card) {
+  t.board('all').then((e) => console.log('board', e))
   //return getCard(card.id).then(function (e) {
   //t.remove('card', 'shared', ['reward', 'status'])
   // if (e.exists) {
