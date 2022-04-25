@@ -42,34 +42,34 @@ const getActionButton = function (id) {
 
 const getCardRewardInfo = function (t, board, card) {
   console.log('info', board, card)
-  return getCard(board.id, card.id).then((reward) => {
-    if (reward.creatorID != '') {
-      console.log('reward', reward)
-      return Promise.all([
-        t.set(
-          'card',
-          'shared',
-          'reward',
-          `💰 ${reward.amount / 10 ** 18} ${reward.symbol}`,
-        ),
-        t.set('card', 'shared', 'status', 1),
-      ]).then(function () {
-        return t
-          .get('card', 'shared')
-          .then(function (e) {
-            console.log('eeee', e)
-            return [
-              { title: 'Reward', text: e.reward },
-              {
-                title: 'Status',
-                text: getStatus(e.status).name,
-              },
-            ]
-          })
-          .catch(() => [])
-      })
-    } else return []
-  })
+  // return getCard(board.id, card.id).then((reward) => {
+  //   if (reward.creatorID != '') {
+  //     console.log('reward', reward)
+  //     return Promise.all([
+  //       t.set(
+  //         'card',
+  //         'shared',
+  //         'reward',
+  //         `💰 ${reward.amount / 10 ** 18} ${reward.symbol}`,
+  //       ),
+  //       t.set('card', 'shared', 'status', 1),
+  //     ]).then(function () {
+  return t
+    .get('card', 'shared')
+    .then(function (e) {
+      console.log('eeee', e)
+      return [
+        { title: 'Reward', text: e.reward },
+        {
+          title: 'Status',
+          text: getStatus(e.status).name,
+        },
+      ]
+    })
+    .catch(() => [])
+  //   })
+  // } else return []
+  // })
   //return getCard(card.id).then(function (e) {
   //t.remove('card', 'shared', ['reward', 'status'])
   // if (e.exists) {
