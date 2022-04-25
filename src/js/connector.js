@@ -58,40 +58,17 @@ const getCardRewardInfo = function (t, board, card) {
     .get('card', 'shared')
     .then(function (e) {
       console.log('eeee', e)
-      return [
-        { title: 'Reward', text: e.reward },
-        {
-          title: 'Status',
-          text: getStatus(e.status).name,
-        },
-      ]
+      if (e.reward != '') {
+        return [
+          { title: 'Reward', text: e.reward },
+          {
+            title: 'Status',
+            text: getStatus(e.status).name,
+          },
+        ]
+      } else return []
     })
     .catch(() => [])
-  //   })
-  // } else return []
-  // })
-  //return getCard(card.id).then(function (e) {
-  //t.remove('card', 'shared', ['reward', 'status'])
-  // if (e.exists) {
-  //   t.set('card', 'shared', 'reward', e.exists && `💰 ${e.amount} ${e.token}`)
-  //   t.set(
-  //     'card',
-  //     'shared',
-  //     'status',
-  //     e.exists && e.performerID === ''
-  //       ? 1
-  //       : e.exists && e.performerID != ''
-  //       ? 2
-  //       : 0,
-  //   )
-  // }
-
-  // t.getAll()
-  //   .then((e) => console.log(e))
-  //   .catch(() => console.log('no data'))
-  //console.log('get card info', e)
-
-  //})
 }
 
 var addReward = function (t) {
@@ -137,56 +114,47 @@ async function connectWallet() {
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
-    console.log(1)
     return t.board('all').then(function (board) {
-      return t.card('all').then(function (card) {
-        return getCardRewardInfo(t, board, card)
+      return t.card('all').then(async function (card) {
+        const res = await getCardRewardInfo(t, board, card)
+        console.log('RES:', res)
+        return await res
       })
     })
   },
   'card-detail-badges': function (t) {
-    console.log(2)
     return t.card('id').then(function (card) {
       return []
       // return getCardRewardInfo(t, card)
     })
   },
   'board-buttons': function (t) {
-    console.log(3)
-    return []
-    // return getSliceAddress(t)
-    //   .then(function (address) {
-    //     console.log(address)
-    //     return [
-    //       {
-    //         icon: EVER,
-    //         text: `${address}`,
-    //         callback: () => connectWallet(),
-    //         condition: 'edit',
-    //       },
-    //     ]
-    //   })
-    //   .catch(function () {
-    //     return [
-    //       {
-    //         text: 'Connect wallet',
-    //         callback: () => connectWallet(),
-    //         condition: 'edit',
-    //       },
-    //     ]
-    //   })
+    return getSliceAddress(t)
+      .then(function (address) {
+        console.log(address)
+        return [
+          {
+            icon: EVER,
+            text: `${address}`,
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
+      })
+      .catch(function () {
+        return [
+          {
+            text: 'Connect wallet',
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
+      })
   },
   'card-buttons': function (t) {
-    console.log(4)
     return t
       .get('card', 'shared')
       .then((e) => getActionButton(e.status))
       .catch(() => [])
   },
 })
-
-// 623c4cca9c930d46db5f8236
-// 62463a0fe983fc08f19d1a21
-// 61a7d888701ac6860b68980c
-// 1000000000000000
-// 0x337610d27c682E347C9cD60BD4b3b107C9d34dDd
