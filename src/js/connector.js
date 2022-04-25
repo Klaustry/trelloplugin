@@ -58,15 +58,14 @@ const getCardRewardInfo = function (t, board, card) {
     .get('card', 'shared')
     .then(function (e) {
       console.log('eeee', e)
-      if (e.reward != '') {
-        return [
-          { title: 'Reward', text: e.reward },
-          {
-            title: 'Status',
-            text: getStatus(e.status).name,
-          },
-        ]
-      } else return []
+
+      return [
+        { title: 'Reward', text: e.reward },
+        {
+          title: 'Status',
+          text: getStatus(e.status).name,
+        },
+      ]
     })
     .catch(() => [])
 }
@@ -114,13 +113,11 @@ async function connectWallet() {
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
-    return t.board('all').then(function (board) {
-      return t.card('all').then(async function (card) {
-        const res = await getCardRewardInfo(t, board, card)
-        console.log('RES:', res)
-        return await res
-      })
-    })
+    // return t.board('all').then(function (board) {
+    //   return t.card('all').then(async function (card) {
+    return getCardRewardInfo(t, 'board', 'card')
+    //   })
+    // })
   },
   'card-detail-badges': function (t) {
     return t.card('id').then(function (card) {
