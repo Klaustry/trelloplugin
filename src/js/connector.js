@@ -115,43 +115,45 @@ TrelloPowerUp.initialize({
   'card-badges': function (t) {
     // return t.board('all').then(function (board) {
     //   return t.card('all').then(async function (card) {
-    return getCardRewardInfo(t, 'board', 'card')
+    //return getCardRewardInfo(t, 'board', 'card')
     //   })
     // })
+
+    return [{ text: 'nnn' }, { text: 'ccc' }]
   },
-  'card-detail-badges': function (t) {
-    return t.card('id').then(function (card) {
-      return []
-      // return getCardRewardInfo(t, card)
-    })
-  },
-  'board-buttons': function (t) {
-    return getSliceAddress(t)
-      .then(function (address) {
-        console.log(address)
-        return [
-          {
-            icon: EVER,
-            text: `${address}`,
-            callback: () => connectWallet(),
-            condition: 'edit',
-          },
-        ]
-      })
-      .catch(function () {
-        return [
-          {
-            text: 'Connect wallet',
-            callback: () => connectWallet(),
-            condition: 'edit',
-          },
-        ]
-      })
-  },
-  'card-buttons': function (t) {
-    return t
-      .get('card', 'shared')
-      .then((e) => getActionButton(e.status))
-      .catch(() => [])
-  },
+  // 'card-detail-badges': function (t) {
+  //   return t.card('id').then(function (card) {
+  //     return []
+  //     // return getCardRewardInfo(t, card)
+  //   })
+  // },
+  // 'board-buttons': function (t) {
+  //   return getSliceAddress(t)
+  //     .then(function (address) {
+  //       console.log(address)
+  //       return [
+  //         {
+  //           icon: EVER,
+  //           text: `${address}`,
+  //           callback: () => connectWallet(),
+  //           condition: 'edit',
+  //         },
+  //       ]
+  //     })
+  //     .catch(function () {
+  //       return [
+  //         {
+  //           text: 'Connect wallet',
+  //           callback: () => connectWallet(),
+  //           condition: 'edit',
+  //         },
+  //       ]
+  //     })
+  // },
+  // 'card-buttons': function (t) {
+  //   return t
+  //     .get('card', 'shared')
+  //     .then((e) => getActionButton(e.status))
+  //     .catch(() => [])
+  // },
 })
