@@ -40,7 +40,8 @@ const getActionButton = function (id) {
   return action
 }
 
-const getCardRewardInfo = function (t, card) {
+const getCardRewardInfo = function (t, board, card) {
+  console.log('info', board, card)
   //return getCard(card.id).then(function (e) {
   //t.remove('card', 'shared', ['reward', 'status'])
   // if (e.exists) {
@@ -121,43 +122,42 @@ async function connectWallet() {
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
     console.log(1)
-    return t.card('id').then(function (card) {
-      return getCardRewardInfo(t, card)
+    return t.board('id').then(function (board) {
+      return t.card('id').then(function (card) {
+        return getCardRewardInfo(t, board, card)
+      })
     })
   },
   'card-detail-badges': function (t) {
     console.log(2)
     return t.card('id').then(function (card) {
-      return getCardRewardInfo(t, card)
+      return []
+      // return getCardRewardInfo(t, card)
     })
   },
   'board-buttons': function (t) {
-    //return new Promise((resolve,reject)=>{})
-
-    return t.board('id').then(function (board) {
-      console.log('board', board)
-      return getSliceAddress(t)
-        .then(function (address) {
-          console.log(address)
-          return [
-            {
-              icon: EVER,
-              text: `${address}`,
-              callback: () => connectWallet(),
-              condition: 'edit',
-            },
-          ]
-        })
-        .catch(function () {
-          return [
-            {
-              text: 'Connect wallet',
-              callback: () => connectWallet(),
-              condition: 'edit',
-            },
-          ]
-        })
-    })
+    console.log(3)
+    return getSliceAddress(t)
+      .then(function (address) {
+        console.log(address)
+        return [
+          {
+            icon: EVER,
+            text: `${address}`,
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
+      })
+      .catch(function () {
+        return [
+          {
+            text: 'Connect wallet',
+            callback: () => connectWallet(),
+            condition: 'edit',
+          },
+        ]
+      })
   },
   'card-buttons': function (t) {
     console.log(4)
