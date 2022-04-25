@@ -42,7 +42,7 @@ const getActionButton = function (id) {
 
 const getCardRewardInfo = function (t, board, card) {
   console.log('info', board, card)
-  return getCard(board, card).then((reward) => {
+  return getCard(board.id, card.id).then((reward) => {
     console.log('reward', reward)
     return t
       .get('card', 'shared')
