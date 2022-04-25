@@ -44,6 +44,14 @@ const getCardRewardInfo = function (t, board, card) {
   console.log('info', board, card)
   return getCard(board.id, card.id).then((reward) => {
     console.log('reward', reward)
+    t.set(
+      'card',
+      'shared',
+      'reward',
+      e.creatorID != '' && `💰 ${e.amount} ${e.symbol}`,
+    )
+    t.set('card', 'shared', 'status', e.creatorID != '' && 1)
+
     return t
       .get('card', 'shared')
       .then(function (e) {
@@ -172,3 +180,9 @@ TrelloPowerUp.initialize({
       .catch(() => [])
   },
 })
+
+// 623c4cca9c930d46db5f8236
+// 62463a0fe983fc08f19d1a21
+// 61a7d888701ac6860b68980c
+// 1000000000000000
+// 0x337610d27c682E347C9cD60BD4b3b107C9d34dDd
