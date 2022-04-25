@@ -43,28 +43,32 @@ const getActionButton = function (id) {
 const getCardRewardInfo = function (t, board, card) {
   console.log('info', board, card)
   return getCard(board.id, card.id).then((reward) => {
-    console.log('reward', reward)
-    t.set(
-      'card',
-      'shared',
-      'reward',
-      e.creatorID != '' && `💰 ${e.amount} ${e.symbol}`,
-    )
-    t.set('card', 'shared', 'status', e.creatorID != '' && 1)
-
-    return t
-      .get('card', 'shared')
-      .then(function (e) {
-        console.log('eeee', e)
-        return [
-          { title: 'Reward', text: e.reward },
-          {
-            title: 'Status',
-            text: getStatus(e.status).name,
-          },
-        ]
+    if (reward.creatorID != '') {
+      console.log('reward', reward)
+      return Promise.all([
+        t.set(
+          'card',
+          'shared',
+          'reward',
+          `💰 ${reward.amount} ${reward.symbol}`,
+        ),
+        t.set('card', 'shared', 'status', 1),
+      ]).then(function () {
+        return t
+          .get('card', 'shared')
+          .then(function (e) {
+            console.log('eeee', e)
+            return [
+              { title: 'Reward', text: e.reward },
+              {
+                title: 'Status',
+                text: getStatus(e.status).name,
+              },
+            ]
+          })
+          .catch(() => [])
       })
-      .catch(() => [])
+    } else return []
   })
   //return getCard(card.id).then(function (e) {
   //t.remove('card', 'shared', ['reward', 'status'])
