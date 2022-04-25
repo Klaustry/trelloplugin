@@ -123,7 +123,7 @@ TrelloPowerUp.initialize({
   'card-badges': function (t) {
     console.log(1)
     return t.board('all').then(function (board) {
-      return t.card('id').then(function (card) {
+      return t.card('all').then(function (card) {
         return getCardRewardInfo(t, board, card)
       })
     })
