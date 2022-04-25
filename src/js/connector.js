@@ -120,16 +120,19 @@ async function connectWallet() {
 
 TrelloPowerUp.initialize({
   'card-badges': function (t) {
+    console.log(1)
     return t.card('id').then(function (card) {
       return getCardRewardInfo(t, card)
     })
   },
   'card-detail-badges': function (t) {
+    console.log(2)
     return t.card('id').then(function (card) {
       return getCardRewardInfo(t, card)
     })
   },
   'board-buttons': function (t) {
+    console.log(3)
     return getSliceAddress(t)
       .then(function (address) {
         console.log(address)
@@ -153,6 +156,7 @@ TrelloPowerUp.initialize({
       })
   },
   'card-buttons': function (t) {
+    console.log(4)
     return t
       .get('card', 'shared')
       .then((e) => getActionButton(e.status))
