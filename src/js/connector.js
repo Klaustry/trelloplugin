@@ -50,7 +50,7 @@ const getCardRewardInfo = function (t, board, card) {
           'card',
           'shared',
           'reward',
-          `💰 ${reward.amount} ${reward.symbol}`,
+          `💰 ${reward.amount / 10 ** 18} ${reward.symbol}`,
         ),
         t.set('card', 'shared', 'status', 1),
       ]).then(function () {
