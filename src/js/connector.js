@@ -132,7 +132,9 @@ TrelloPowerUp.initialize({
     })
   },
   'board-buttons': function (t) {
-    t.board('id').then(function (board) {
+    //return new Promise((resolve,reject)=>{})
+
+    return t.board('id').then(function (board) {
       console.log('board', board)
       return getSliceAddress(t)
         .then(function (address) {
