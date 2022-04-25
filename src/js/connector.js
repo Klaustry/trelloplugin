@@ -132,28 +132,30 @@ TrelloPowerUp.initialize({
     })
   },
   'board-buttons': function (t) {
-    console.log(3)
-    return getSliceAddress(t)
-      .then(function (address) {
-        console.log(address)
-        return [
-          {
-            icon: EVER,
-            text: `${address}`,
-            callback: () => connectWallet(),
-            condition: 'edit',
-          },
-        ]
-      })
-      .catch(function () {
-        return [
-          {
-            text: 'Connect wallet',
-            callback: () => connectWallet(),
-            condition: 'edit',
-          },
-        ]
-      })
+    t.board('id').then(function (board) {
+      console.log('board', board)
+      return getSliceAddress(t)
+        .then(function (address) {
+          console.log(address)
+          return [
+            {
+              icon: EVER,
+              text: `${address}`,
+              callback: () => connectWallet(),
+              condition: 'edit',
+            },
+          ]
+        })
+        .catch(function () {
+          return [
+            {
+              text: 'Connect wallet',
+              callback: () => connectWallet(),
+              condition: 'edit',
+            },
+          ]
+        })
+    })
   },
   'card-buttons': function (t) {
     console.log(4)
